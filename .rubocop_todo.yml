@@ -1,0 +1,26 @@
+Metrics/AbcSize:
+  Exclude:
+    - app/api/yahoo_ranks.rb
+    - app/api/yahoo_team.rb
+    - app/api/yahoo_stats.rb
+
+RSpec/InstanceVariable:
+  Exclude:
+    - spec/views/fantasy_baseball_teams/edit.html.erb_spec.rb
+
+LineLength:
+  Exclude:
+    - spec/support/*.rb
+
+Metrics/BlockLength:
+  Max: 177
+  Exclude:
+    - spec/support/*.rb
+
+RSpec/ContextWording:
+  Exclude:
+    - spec/support/*.rb
+
+RSpec/MultipleExpectations:
+  Max: 5
+

@@ -1,0 +1,6 @@
+<div class="jumbotron">
+  <h1 class="display-3">Your Teams</h1>
+</div>
+<% if @fantasy_baseball_teams.any? %>
+  <%= render 'layouts/fantasy_baseball_leagues', { fantasy_baseball_teams: @fantasy_baseball_teams } %>
+<% end %>

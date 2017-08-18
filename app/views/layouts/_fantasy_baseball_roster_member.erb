@@ -1,0 +1,33 @@
+<% if roster_members.present? && roster_members.any? %>
+  <div class='players'>
+    <% unless updated %>
+      <div class='players-header'>Current Roster</div>
+    <% else %>
+      <div class='players-header'>Roster - <%=pretty_datetime @updated%></div>
+    <% end %>
+
+    <% roster_members.each do |roster_member| %>
+      <div class='row display-flex'>
+        <div class='col-2'>
+          <%= image_tag(roster_member.image_url) unless roster_member.image_url.blank? %>
+        </div>
+        <div class='col-4 league-row' style="width: 200px">
+          <div><strong><%= roster_member.full_name %></strong></div>
+          <div><%= roster_member.team_with_number %></div>
+          <div><%= roster_member.eligible_positions %></div>
+        </div>
+        <div class='col-3'>
+          <div class='pos-row'>
+            <%= roster_member.selected_position %>
+          </div>
+        </div>
+        <% if roster_members.any?{|p| p.updated_position.present?} %>
+          <%= image_tag("arrow.png") %>
+          <div class='col-3'>
+            <div class='pos-row'><%= roster_member.updated_position %></div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+<% end %>

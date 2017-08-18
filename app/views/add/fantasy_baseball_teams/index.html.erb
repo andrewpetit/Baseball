@@ -1,0 +1,23 @@
+<% if current_user.yahoo_auth? && @fantasy_baseball_teams.any? %>
+  <div class="jumbotron">
+    <h1 class="display-3">Available Teams</h1>
+  </div>
+  <%= render 'layouts/fantasy_baseball_leagues', { fantasy_baseball_teams: @fantasy_baseball_teams } %>
+<br>
+<% elsif current_user.yahoo_auth? && @fantasy_baseball_teams.empty? %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Sorry</h1>
+      <p>There are no teams available to add to your account. Either your season has not started or you need to add join a league.</p>
+    </div>
+  </div>
+<% else %>
+  <div class="jumbotron">
+    <div class="container">
+      <h1 class="display-3">Account Details</h1>
+      <p>You must authorize your yahoo account.</p>
+      <p><%= link_to 'Authorize', add_fantasy_baseball_teams_auth_account_path, class: "btn btn-primary btn-lg"  %></p>
+    </div>
+  </div>
+<% end %>
+

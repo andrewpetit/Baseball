@@ -1,0 +1,90 @@
+inherit_from: .rubocop_todo.yml
+
+require: rubocop-rspec
+
+AllCops:
+  # Include:
+  #   - Gemfile
+  #   - Rakefile
+  #   - config.ru
+  Exclude:
+    - Guardfile
+    - bin/**/*
+    - db/**/*
+    - config/**/*
+    - vendor/**/*
+  # TargetRubyVersion: 2.2
+
+Style/Documentation:
+  Enabled: false
+
+RegexpLiteral:
+  Exclude:
+    - Guardfile
+
+# Style/TrailingCommaInLiteral:
+#   EnforcedStyleForMultiline: consistent_comma
+
+RSpec/DescribeClass:
+  Exclude:
+    - spec/requests/**/*
+
+Layout/EmptyLinesAroundModuleBody:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+
+Lint/UnneededCopDisableDirective:
+  Enabled: false
+
+Layout/EmptyLinesAroundClassBody:
+  Enabled: false
+
+Layout/EmptyLinesAroundMethodBody:
+  Enabled: false
+
+Style/MethodDefParentheses:
+  EnforcedStyle: require_no_parentheses
+
+Style/NumericLiterals:
+  Enabled: false
+
+Metrics/LineLength:
+  Max: 160
+
+Metrics/MethodLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/ClassLength:
+  Enabled: false
+
+Metrics/AbcSize:
+  Max: 20
+
+Style/GuardClause:
+  Enabled: true
+
+Style/IfUnlessModifier:
+  Enabled: false
+
+Style/SymbolArray:
+  Enabled: false
+
+Style/WordArray:
+  MinSize: 3
+
+Style/SingleLineBlockParams:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+Rails/Delegate:
+  Enabled: false
+
+
+

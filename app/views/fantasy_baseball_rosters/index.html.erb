@@ -1,0 +1,23 @@
+<%= render 'layouts/fantasy_baseball_team', { fantasy_baseball_team: @fantasy_baseball_team, updated: false, history: true } %>
+
+<% if @fantasy_baseball_rosters.any? %>
+  <div class='players'>
+    <h2 style="display:inline;" >Lineup Changes</h2>
+    <% @fantasy_baseball_rosters.each do |fantasy_baseball_roster| %>
+      <div class='row display-flex'>
+        <div class='col-4'>
+          <%= link_to pretty_datetime(fantasy_baseball_roster.created_at), fantasy_baseball_team_path(:id => fantasy_baseball_roster.fantasy_baseball_team_id, :update_id => fantasy_baseball_roster.id)  %>
+        </div>
+        <div class='col-4 league-row'>
+          <%= fantasy_baseball_roster.roster_sort.description %>
+        </div>
+        <div class='col-4 league-row'>
+          <%= fantasy_baseball_roster.update_type.update_type %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+<% else %>
+  <h2>You don't have any changes</h2>
+<% end %>
+

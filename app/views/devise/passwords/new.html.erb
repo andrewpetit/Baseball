@@ -1,0 +1,16 @@
+<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+  <div class="jumbotron">
+    <h1 class="display-3">Forgot your password?</h1>
+  </div>
+  <%= devise_error_messages! %>
+
+  <div class='row display-flex'>
+    <div class='col league-row'>
+      <%= f.label :email %><br />
+      <%= f.email_field :email, autofocus: true %>
+      <br />
+      <br />
+      <%= f.submit "Send me reset password instructions", :class => "btn btn-primary btn-md" %>
+    </div>
+  </div>
+<% end %>

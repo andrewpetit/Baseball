@@ -1,0 +1,54 @@
+<%= form_with(model: fantasy_baseball_team, local: true) do |form| %>
+  <% if fantasy_baseball_team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(fantasy_baseball_team.errors.count, "error") %> prohibited this fantasy_baseball_team from being saved:</h2>
+
+      <ul>
+      <% fantasy_baseball_team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <%= hidden_field(:fantasy_baseball_team, :league_id) %>
+  <%= hidden_field(:fantasy_baseball_team, :team_id) %>
+  <%= hidden_field(:fantasy_baseball_team, :team_icon_url) %>
+  <%= hidden_field(:fantasy_baseball_team, :league_key) %>
+  <%= hidden_field(:fantasy_baseball_team, :team_name) %>
+  <%= hidden_field(:fantasy_baseball_team, :league_name) %>
+  <%= hidden_field(:fantasy_baseball_team, :is_active) %>
+
+  <div class="jumbotron">
+    <h1 class="display-3">
+      <%= @fantasy_baseball_team.team_name %> - <%= @fantasy_baseball_team.league_name %>
+    </h1>
+  </div>
+
+<div class='row display-flex'>
+  <div class='col-2'>
+    <%= image_tag(@fantasy_baseball_team.team_icon_url) unless @fantasy_baseball_team.team_icon_url.blank? %>
+  </div>
+  <div class='col-2 league-row'>
+    <% if fantasy_baseball_team.new_record? %>
+      <h3><%= fantasy_baseball_team.team_name %></h3>
+    <% else %>
+      <h3><%= link_to fantasy_baseball_team.team_name, fantasy_baseball_team_path(fantasy_baseball_team) %></h3>
+    <% end %>
+    <div><strong><%= form.label :roster_sort_id %></strong></div>
+    <div><strong><%= form.label :auto_update %></strong></div>
+  </div>
+  <div class='col-8 league-row'>
+    <h3>&nbsp;</h3>
+    <div><%= form.select :roster_sort_id, options_for_select(RosterSort.all.collect{ |r| [r.description, r.id] }, :selected => fantasy_baseball_team.roster_sort_id) %></div>
+    <div><%= form.select :auto_update, options_for_select([['True', true],['False', false]], :selected => fantasy_baseball_team.auto_update)  %></div>
+  </div>
+</div>
+<div class='row display-flex button-row'>
+  <% if fantasy_baseball_team.new_record? %>
+    <%= form.submit 'Add Team', :class => "btn btn-primary btn-md" %>
+  <% else %>
+    <%= form.submit 'Update Settings', :class => "btn btn-primary btn-md" %>
+  <% end %>
+</div>
+<% end %>

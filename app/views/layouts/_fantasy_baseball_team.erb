@@ -1,0 +1,33 @@
+<div class="jumbotron">
+  <h1 class="display-3">
+    <%= fantasy_baseball_team.team_name %> - <%= fantasy_baseball_team.league_name %>
+  </h1>
+</div>
+
+<div class='row display-flex'>
+  <div class='col-2'>
+    <%= image_tag(fantasy_baseball_team.team_icon_url) unless fantasy_baseball_team.team_icon_url.blank? %>
+  </div>
+  <div class='col-2 league-row'>
+    <div><strong>League Key:</strong></div>
+    <div><strong>Roster Sort:</strong></div>
+    <div><strong>Auto Update:</strong></div>
+    <div><strong>Active</strong></div>
+  </div>
+  <div class='col-8 league-row'>
+    <div><%= fantasy_baseball_team.league_key %></div>
+    <div><%= fantasy_baseball_team.roster_sort.description %></div>
+    <div><%= fantasy_baseball_team.auto_update %></div>
+    <div><%= fantasy_baseball_team.is_active %></div>
+  </div>
+</div>
+<div class='row display-flex button-row'>
+  <div class='button-col'><%= link_to 'Edit Team', edit_fantasy_baseball_team_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
+  <div class='button-col'><%= link_to 'Optimize Lineup', fantasy_baseball_teams_update_roster_path(fantasy_baseball_team), class: "btn btn-primary btn-dm", method: 'put' %></div>
+  <% if !history %>
+    <div class='button-col'><%= link_to 'Lineup History', fantasy_baseball_team_fantasy_baseball_rosters_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
+  <% end %>
+  <% if updated || history %>
+    <div class='button-col'><%= link_to 'Current Roster', fantasy_baseball_team_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
+  <% end %>
+</div>

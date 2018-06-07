@@ -15,6 +15,9 @@
           <div><strong><%= roster_member.full_name %></strong></div>
           <div><%= roster_member.team_with_number %></div>
           <div><%= roster_member.eligible_positions %></div>
+          <% if roster_member.status_full.present? %>
+            <div style='color:#d9534f'><%= roster_member.status_full %></div>
+          <% end %>
         </div>
         <div class='col-3'>
           <div class='pos-row'>

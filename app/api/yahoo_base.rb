@@ -13,6 +13,10 @@ module Api
 
     private
 
+    def remove_brackets data
+      data.map { |r| r.transform_values(&:first) } # remove brackets/yahoo returns arrays
+    end
+
     def parse_yahoo_response request_url
       response = @yahoo_access_token.token.get(request_url)
       XmlSimple.xml_in(response.body)

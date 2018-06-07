@@ -4,11 +4,12 @@ RSpec.describe Api::SeatGeekGames, type: :class do
   include_context 'seat_geek_response_stubs'
   let(:seat_geek) { described_class.new }
 
-  let(:start_date) { Time.now.strftime('%F') }
-  let(:end_date) { (Time.now + (60 * 60 * 24)).strftime('%F') }
+  let(:start_date) { Time.now }
+  let(:end_date) { (Time.now + (60 * 60 * 24)) }
 
   describe '#todays_games' do
     before do
+      allow(Time).to receive(:now).and_return(start_date)
       allow(seat_geek).to receive(:get_games).and_return(nil)
       seat_geek.todays_games
     end

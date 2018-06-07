@@ -43,6 +43,7 @@ RSpec.describe Api::YahooRoster, type: :class do
         expect(roster_member.editorial_team_key).to eq 'mlb.t.27'
         expect(roster_member.editorial_team_full_name).to eq 'Colorado Rockies'
         expect(roster_member.editorial_team_abbr).to eq 'Col'
+        expect(roster_member.status_full).to eq 'Not Active'
       end
       # rubocop:enable ExampleLength
       # rubocop:enable MultipleExpectations

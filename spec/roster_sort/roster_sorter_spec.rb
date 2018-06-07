@@ -131,10 +131,10 @@ RSpec.describe RosterSorter, type: :class do
 
       it 'sorts position' do
         ranks = roster_sorter.sorted_roster
-        expect(ranks[0].updated_position).to eq 'C'
-        expect(ranks[1].updated_position).to eq 'SS'
-        expect(ranks[2].updated_position).to eq 'SP'
-        expect(ranks[3].updated_position).to eq 'P'
+        expect(ranks[0].updated_position).to eq 'SS'
+        expect(ranks[1].updated_position).to eq 'C'
+        expect(ranks[2].updated_position).to eq 'P'
+        expect(ranks[3].updated_position).to eq 'SP'
       end
     end
 
@@ -149,10 +149,10 @@ RSpec.describe RosterSorter, type: :class do
 
       it 'sorts position' do
         ranks = roster_sorter.sorted_roster
-        expect(ranks[0].updated_position).to eq 'C'
-        expect(ranks[1].updated_position).to eq 'SS'
-        expect(ranks[2].updated_position).to eq 'SP'
-        expect(ranks[3].updated_position).to eq 'P'
+        expect(ranks[0].updated_position).to eq 'SS'
+        expect(ranks[1].updated_position).to eq 'C'
+        expect(ranks[2].updated_position).to eq 'P'
+        expect(ranks[3].updated_position).to eq 'SP'
       end
     end
 
@@ -167,10 +167,23 @@ RSpec.describe RosterSorter, type: :class do
 
       it 'sorts position' do
         ranks = roster_sorter.sorted_roster
-        expect(ranks[0].updated_position).to eq 'C'
-        expect(ranks[1].updated_position).to eq 'SS'
-        expect(ranks[2].updated_position).to eq 'SP'
-        expect(ranks[3].updated_position).to eq 'P'
+        expect(ranks[0].updated_position).to eq 'SS'
+        expect(ranks[1].updated_position).to eq 'C'
+        expect(ranks[2].updated_position).to eq 'P'
+        expect(ranks[3].updated_position).to eq 'SP'
+      end
+    end
+
+    context 'when status_full is present' do
+      let(:sort_type) { 'season_stat_rank' }
+      let(:status_full) { junk }
+
+      before do
+        player1.status_full = status_full
+      end
+
+      it 'updates position' do
+        expect(roster_sorter.sorted_roster.select { |p| p.status_full == status_full }.first.updated_position).to eq 'SS'
       end
     end
   end

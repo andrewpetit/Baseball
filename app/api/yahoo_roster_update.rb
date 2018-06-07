@@ -36,7 +36,6 @@ module Api
             xml.players do
               fantasy_baseball_roster.each do |p|
                 xml.player do
-                  # xml.player_key "#{@league_key}.p.#{p.external_id}"
                   xml.player_key p.editorial_player_key
                   xml.position p.updated_position
                 end

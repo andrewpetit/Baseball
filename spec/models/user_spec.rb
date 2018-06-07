@@ -94,6 +94,7 @@ RSpec.describe User, type: :model do
     context 'with auth' do
       let(:is_active) { true }
       let(:team1) { build :fantasy_baseball_team, roster_sort: roster_sort, is_active: is_active }
+      # let(:team1) { fantasy_baseball_team }
       let(:team2) { build :fantasy_baseball_team, league_key: junk }
       let(:api_teams) { [team1, team2] }
       let(:teams_api) { instance_double(Api::YahooTeam) }
@@ -103,7 +104,7 @@ RSpec.describe User, type: :model do
         allow(teams_api).to receive(:user_teams).and_return(api_teams)
       end
 
-      context 'with inactive team' do
+      context 'with active team' do
         let(:user_team_active) { false }
 
         it 'does not update' do
@@ -114,12 +115,9 @@ RSpec.describe User, type: :model do
       context 'with inactive team' do
         let(:is_active) { false }
 
-        before do
-          user.deactivate_leagues
-        end
         it 'updates' do
           expect(user.deactivate_leagues).to be_truthy
-          expect(team1.is_active).to be_falsy
+          expect(FantasyBaseballTeam.last.is_active).to be_falsy
         end
       end
 
@@ -127,12 +125,9 @@ RSpec.describe User, type: :model do
         let(:user_team_active) { nil }
         let(:is_active) { true }
 
-        before do
-          user.deactivate_leagues
-        end
         it 'updates' do
           expect(user.deactivate_leagues).to be_truthy
-          expect(team1.is_active).to be_truthy
+          expect(FantasyBaseballTeam.last.is_active).to be_truthy
         end
       end
     end

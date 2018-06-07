@@ -2,20 +2,32 @@ module Api
   class SeatGeekGames
     CLIENT_ID = ENV['SEAT_GEEK_CLIENT_ID']
     TEAM_IDS = Array(1..30).freeze
+    BASE_URL = 'https://api.seatgeek.com/2/events?per_page=50&performers.id='.freeze
 
     def todays_games
-      start_date = Time.now.strftime('%F')
-      end_date = (Time.now + (60 * 60 * 24)).strftime('%F')
-      get_games(start_date, end_date)
+      get_games(today_start, today_end)
     end
 
     def get_games start_date, end_date
-      base_url = 'https://api.seatgeek.com/2/events?per_page=50&performers.id='.freeze
-      url = "#{base_url}#{TEAM_IDS.join(',')}&datetime_utc.gte=#{start_date}&datetime_local.lte=#{end_date}&client_id=#{CLIENT_ID}"
-      parse_response(get_response(url))
+      parse_response(get_response(url(start_date, end_date)))
     end
 
     private
+
+    def today_start
+      Time.now
+    end
+
+    def today_end
+      (Time.now + (60 * 60 * 24))
+    end
+
+    def url start_date, end_date
+      "#{BASE_URL}#{TEAM_IDS.join(',')}"\
+      "&datetime_utc.gte=#{start_date.strftime('%F')}"\
+      "&datetime_local.lte=#{end_date.strftime('%F')}"\
+      "&client_id=#{CLIENT_ID}"
+    end
 
     def get_response url
       uri = URI.parse(url)

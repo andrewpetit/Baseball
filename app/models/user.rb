@@ -28,7 +28,7 @@ class User < ApplicationRecord
     return if update_teams.empty?
     teams_api = Api::YahooTeam.new yahoo_access_token
     update_teams.each do |team|
-      team.is_active = teams_api.user_teams.find { |t| team.league_key == t.league_key }
+      team.is_active = teams_api.user_teams.find { |t| team.league_key == t.league_key }.is_active
       team.save
     end
   end

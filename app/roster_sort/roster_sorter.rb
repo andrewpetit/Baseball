@@ -19,19 +19,6 @@ class RosterSorter
   # TODO: include these in update
   REJECTED_POSITIONS = ['DL', 'NA'].freeze
 
-  DISPLAY_ORDER =
-    { 'C' => 1,
-      '1B' => 2,
-      '2B' => 3,
-      '3B' => 4,
-      'SS' => 5,
-      'OF' => 6,
-      'Util' => 7,
-      'SP' => 8,
-      'RP' => 10,
-      'P' => 11,
-      'BN' => 12 }.freeze
-
   def initialize fantasy_baseball_team
     @fantasy_baseball_team = fantasy_baseball_team
     @fantasy_baseball_roster = fantasy_baseball_team.current_roster.reject { |p| REJECTED_POSITIONS.include?(p.selected_position) }
@@ -54,8 +41,7 @@ class RosterSorter
     merge_sort_data
     merge_playing_today
     sort
-    display_sort
-    @fantasy_baseball_roster
+    DisplaySort.sort @fantasy_baseball_roster
   end
 
   private
@@ -64,13 +50,9 @@ class RosterSorter
     @fantasy_baseball_roster = @fantasy_baseball_roster
                                .sort_by { |r| r.send(@roster_sort.sort_type.to_s) }
                                .sort_by { |p| p.playing_today ? 0 : 1 }
+                               .sort_by { |p| p.status_full.nil? ? 0 : 1 }
     sort_hitters
     sort_pitchers
-  end
-
-  def display_sort
-    @fantasy_baseball_roster = @fantasy_baseball_roster
-                               .sort_by { |pos| DISPLAY_ORDER[pos] }
   end
 
   def hitters

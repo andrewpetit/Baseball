@@ -12,7 +12,7 @@ module Api
       data = parse_yahoo_response(roster_url)
       return [] if team_missing? data
       data = data['team'].first['roster'].first['players'].first['player']
-      data = data.map { |r| r.transform_values(&:first) } # remove brackets/yahoo returns arrays
+      data = remove_brackets data
       map_fields data
       data.map { |r| FantasyBaseballRosterMember.new(r) }
     end

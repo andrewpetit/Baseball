@@ -22,7 +22,6 @@ class YahooAccessToken < ApplicationRecord
   def self.oauth_client
     OAuth2::Client.new(CLIENT_KEY, CLIENT_SECRET, site: USER_AUTH_URL, authorize_url: AUTHORIZE_URL, token_url: TOKEN_URL)
   end
-  # private_class_method :oauth_client
 
   def token
     token = OAuth2::AccessToken.from_hash(YahooAccessToken.oauth_client, parsed_access_token)
@@ -33,6 +32,8 @@ class YahooAccessToken < ApplicationRecord
     end
     token
   end
+
+  private
 
   def parsed_access_token
     JSON.parse(access_token.gsub(/:(\w+)/) { "\"#{Regexp.last_match(1)}\"" }.gsub('=>', ':')).symbolize_keys

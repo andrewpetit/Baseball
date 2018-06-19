@@ -44,11 +44,20 @@ RSpec.describe Api::YahooRoster, type: :class do
         expect(roster_member.editorial_team_full_name).to eq 'Colorado Rockies'
         expect(roster_member.editorial_team_abbr).to eq 'Col'
         expect(roster_member.status_full).to eq 'Not Active'
+        expect(roster_member.probable_starter).to eq false
       end
       # rubocop:enable ExampleLength
       # rubocop:enable MultipleExpectations
 
       # rubocop:disable NestedGroups
+      context 'when probable starter' do
+        let(:probable_starter) { roster_members.any? { |m| m.probable_starter == true } }
+
+        it 'populates' do
+          expect(probable_starter).to be_truthy
+        end
+      end
+
       context 'with no roster' do
         let(:roster) { [] }
 

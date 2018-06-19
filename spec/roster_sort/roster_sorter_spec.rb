@@ -39,7 +39,6 @@ RSpec.describe RosterSorter, type: :class do
     [player1, player2, player3, player4]
   end
 
-  # [{"rank_type"=>["OR"], "rank_value"=>["78"]}, {"rank_type"=>["S"], "rank_value"=>["303"], "rank_season"=>["2017"]}]
   let(:rank1) do
     build :fantasy_baseball_roster_member,
           position_type: 'B',
@@ -175,7 +174,6 @@ RSpec.describe RosterSorter, type: :class do
     end
 
     context 'when status_full is present' do
-      let(:sort_type) { 'season_stat_rank' }
       let(:status_full) { junk }
 
       before do
@@ -184,6 +182,16 @@ RSpec.describe RosterSorter, type: :class do
 
       it 'updates position' do
         expect(roster_sorter.sorted_roster.select { |p| p.status_full == status_full }.first.updated_position).to eq 'SS'
+      end
+    end
+
+    context 'when probable_starter' do
+      before do
+        player2.probable_starter = true
+      end
+
+      it 'updates position' do
+        expect(roster_sorter.sorted_roster.select { |p| p.probable_starter == true }.first.updated_position).to eq 'C'
       end
     end
   end

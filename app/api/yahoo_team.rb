@@ -13,7 +13,7 @@ module Api
       teams.each do |team|
         leagues.each do |league|
           if team['team_key'].first.include? league['league_key'].first
-            team['is_active'] = team['is_game_over']
+            team['is_active'] = [team['is_game_over'] == ['0']]
             merged_teams << league.merge(team)
           end
         end

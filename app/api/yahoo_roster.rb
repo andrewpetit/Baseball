@@ -25,6 +25,7 @@ module Api
         data['team'].first['roster'].first['players'].first.empty?
     end
 
+    # rubocop:disable Metrics/AbcSize
     def map_fields data
       data.each do |r|
         r['first_name'] = r['name']['first'].first
@@ -33,7 +34,10 @@ module Api
         r['eligible_positions'] = r['eligible_positions']['position'].join(',')
         r['selected_position'] = r['selected_position']['position'].first
         r['headshot_url'] = r['headshot']['url'].first
+        r['probable_starter'] = r['starting_status']['is_starting'].first == '1' if r['starting_status']
       end
     end
+    # rubocop:enable Metrics/AbcSize
+
   end
 end

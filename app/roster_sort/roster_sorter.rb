@@ -50,6 +50,7 @@ class RosterSorter
     @fantasy_baseball_roster = @fantasy_baseball_roster
                                .sort_by { |r| r.send(@roster_sort.sort_type.to_s) }
                                .sort_by { |p| p.playing_today ? 0 : 1 }
+                               .sort_by { |p| p.probable_starter ? 0 : 1 }
                                .sort_by { |p| p.status_full.nil? ? 0 : 1 }
     sort_hitters
     sort_pitchers

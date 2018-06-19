@@ -1,7 +1,7 @@
 class FantasyBaseballTeam < ApplicationRecord
   belongs_to :user
   belongs_to :roster_sort
-  has_many :fantasy_baseball_roster
+  has_many :fantasy_baseball_roster, -> { order(created_at: :desc) }
 
   def initialize args = nil
     unless args.nil?

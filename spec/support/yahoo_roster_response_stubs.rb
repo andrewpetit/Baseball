@@ -455,6 +455,7 @@ RSpec.shared_context 'yahoo_roster_response_stubs' do
        'position_type' => ['P'],
        'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
        'selected_position' => [{ 'coverage_type' => ['date'], 'date' => ['2018-01-10'], 'position' => ['P'] }],
+       'starting_status' => [{ 'coverage_type' => ['date'], 'date' => ['2018-07-31'], 'is_starting' => ['1'] }],
        'is_editable' => ['0'] },
      { 'player_key' => ['370.p.9635'],
        'player_id' => ['9635'],

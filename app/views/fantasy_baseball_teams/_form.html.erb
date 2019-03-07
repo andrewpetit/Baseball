@@ -28,7 +28,7 @@
 
 <div class='row display-flex'>
   <div class='col-2'>
-    <%= image_tag(@fantasy_baseball_team.team_icon_url) unless @fantasy_baseball_team.team_icon_url.blank? %>
+    <%= image_tag(@fantasy_baseball_team.team_icon_url, height: '100', width: '100') unless @fantasy_baseball_team.team_icon_url.blank? %>
   </div>
   <div class='col-2 league-row'>
     <% if fantasy_baseball_team.new_record? %>

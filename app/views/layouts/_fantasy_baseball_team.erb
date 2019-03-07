@@ -6,7 +6,7 @@
 
 <div class='row display-flex'>
   <div class='col-2'>
-    <%= image_tag(fantasy_baseball_team.team_icon_url) unless fantasy_baseball_team.team_icon_url.blank? %>
+    <%= image_tag(fantasy_baseball_team.team_icon_url, height: '100', width: '100') unless fantasy_baseball_team.team_icon_url.blank? %>
   </div>
   <div class='col-2 league-row'>
     <div><strong>League Key:</strong></div>
@@ -26,8 +26,10 @@
   </div>
 </div>
 <div class='row display-flex button-row'>
-  <div class='button-col'><%= link_to 'Edit Team', edit_fantasy_baseball_team_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
-  <div class='button-col'><%= link_to 'Optimize Lineup', fantasy_baseball_teams_update_roster_path(fantasy_baseball_team), class: "btn btn-primary btn-dm", method: 'put' %></div>
+  <% if fantasy_baseball_team.is_active %>
+    <div class='button-col'><%= link_to 'Edit Team', edit_fantasy_baseball_team_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
+    <div class='button-col'><%= link_to 'Optimize Lineup', fantasy_baseball_teams_update_roster_path(fantasy_baseball_team), class: "btn btn-primary btn-dm", method: 'put' %></div>
+  <% end %>
   <% if !history %>
     <div class='button-col'><%= link_to 'Lineup History', fantasy_baseball_team_fantasy_baseball_rosters_path(fantasy_baseball_team), class: "btn btn-primary btn-md" %></div>
   <% end %>

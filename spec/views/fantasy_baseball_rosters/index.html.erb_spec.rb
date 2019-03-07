@@ -18,4 +18,15 @@ RSpec.describe 'fantasy_baseball_rosters/index', type: :view do
     expect(rendered).to match(roster1.update_type.update_type)
     expect(rendered).to match(roster2.roster_sort.description)
   end
+
+  describe 'no rosters' do
+    before do
+      assign(:fantasy_baseball_rosters, [])
+    end
+
+    it 'displays message' do
+      render
+      expect(rendered).to match(/You don't have any changes/)
+    end
+  end
 end

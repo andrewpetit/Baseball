@@ -8,12 +8,14 @@ RSpec.describe FantasyBaseballTeam, type: :model do
   let(:league_id) { '456' }
   let(:team_id) { '789' }
   let(:mlb_id) { league_key }
+  let(:is_active) { true }
   let(:args) do
     {
       'league_key' => league_key,
       'league_id' => league_id,
       'team_id' => team_id,
-      'invalid' => 'test'
+      'invalid' => 'test',
+      'is_active' => is_active
     }
   end
 
@@ -112,6 +114,14 @@ RSpec.describe FantasyBaseballTeam, type: :model do
 
     it 'calls update_roster' do
       expect(roster_update).to have_received(:update_roster).with(update_type)
+    end
+
+    describe 'inactive' do
+      let(:is_active) { false }
+
+      it 'does not update_roster' do
+        expect(roster_update).not_to have_received(:update_roster)
+      end
     end
   end
 end

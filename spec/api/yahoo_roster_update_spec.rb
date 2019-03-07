@@ -45,5 +45,13 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
     it 'posts the roster' do
       expect(roster_update).to have_received(:post_and_parse_yahoo_response)
     end
+
+    describe 'undrafted' do
+      let(:roster_members) { [] }
+
+      it 'does not process' do
+        expect(roster_update).not_to have_received(:post_and_parse_yahoo_response)
+      end
+    end
   end
 end

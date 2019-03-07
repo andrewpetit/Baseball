@@ -5,7 +5,7 @@ class FantasyBaseballTeamsController < ApplicationController
   # GET /fantasy_baseball_teams
   def index
     redirect_to add_fantasy_baseball_teams_path if current_user.fantasy_baseball_team.empty?
-    @fantasy_baseball_teams = current_user.fantasy_baseball_team
+    @fantasy_baseball_teams = current_user.fantasy_baseball_team.order('id desc')
   end
 
   #
@@ -55,14 +55,13 @@ class FantasyBaseballTeamsController < ApplicationController
     end
   end
 
-  # PATCH/PUT /fantasy_baseball_teams/1
   def update_roster
     respond_to do |format|
       manual = UpdateType.find_by(update_type: UpdateType::MANUAL)
       if @fantasy_baseball_team.update_roster manual
         format.html { redirect_to @fantasy_baseball_team, notice: 'Fantasy baseball team was successfully updated.' }
       else
-        format.html { render :edit }
+        format.html { redirect_to @fantasy_baseball_team, notice: 'Fantasy baseball cannot be optimized at this time.' }
       end
     end
   end

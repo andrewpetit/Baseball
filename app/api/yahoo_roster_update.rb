@@ -13,6 +13,8 @@ module Api
     end
 
     def update_roster update_type
+      return if fantasy_baseball_roster.empty?
+
       update_url = "https://fantasysports.yahooapis.com/fantasy/v2/team/#{@fantasy_baseball_team.league_key}.t.#{@fantasy_baseball_team.team_id}/roster"
       post_and_parse_yahoo_response(update_url, update_xml)
 

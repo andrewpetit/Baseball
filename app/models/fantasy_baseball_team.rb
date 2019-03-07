@@ -35,6 +35,8 @@ class FantasyBaseballTeam < ApplicationRecord
   end
 
   def update_roster update_type
+    return unless is_active
+
     Api::YahooRosterUpdate.new(self, user.yahoo_access_token).update_roster update_type
   end
 

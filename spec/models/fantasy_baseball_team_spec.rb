@@ -12,8 +12,8 @@ RSpec.describe FantasyBaseballTeam, type: :model do
     {
       'league_key' => league_key,
       'league_id' => league_id,
-      'team_id'  => team_id,
-      'invalid'  => 'test'
+      'team_id' => team_id,
+      'invalid' => 'test'
     }
   end
 
@@ -48,6 +48,7 @@ RSpec.describe FantasyBaseballTeam, type: :model do
       allow(yahoo_roster).to receive(:current_roster_members).and_return(nil)
       team.current_roster
     end
+
     it 'calls current_roster_members' do
       expect(yahoo_roster).to have_received(:current_roster_members)
     end
@@ -63,6 +64,7 @@ RSpec.describe FantasyBaseballTeam, type: :model do
       allow(yahoo_ranks).to receive(:current_player_ranks).and_return(nil)
       team.current_ranks
     end
+
     it 'calls current_player_ranks' do
       expect(yahoo_ranks).to have_received(:current_player_ranks)
     end
@@ -78,6 +80,7 @@ RSpec.describe FantasyBaseballTeam, type: :model do
       allow(yahoo_stats).to receive(:current_player_stats).and_return(nil)
       team.current_stats
     end
+
     it 'calls current_player_stats' do
       expect(yahoo_stats).to have_received(:current_player_stats)
     end
@@ -91,6 +94,7 @@ RSpec.describe FantasyBaseballTeam, type: :model do
       allow(roster_sorter).to receive(:sorted_roster).and_return(nil)
       team.sorted_roster
     end
+
     it 'calls sorted_roster' do
       expect(roster_sorter).to have_received(:sorted_roster)
     end
@@ -105,6 +109,7 @@ RSpec.describe FantasyBaseballTeam, type: :model do
       allow(roster_update).to receive(:update_roster).with(update_type).and_return(nil)
       team.update_roster update_type
     end
+
     it 'calls update_roster' do
       expect(roster_update).to have_received(:update_roster).with(update_type)
     end

@@ -6,9 +6,11 @@ module Api
     def user_teams
       teams = available_teams
       return [] if teams.empty?
+
       league_ids = teams.map { |t| t['team_key'].first.split('.').slice(0, 3).join('.') }
       leagues = available_leagues(league_ids)
       return [] if leagues.empty?
+
       merged_teams = []
       teams.each do |team|
         leagues.each do |league|
@@ -27,8 +29,10 @@ module Api
     def available_teams
       data = parse_yahoo_response(AVAILABLE_TEAMS_URL)
       return [] if data.empty?
+
       data = data['users'].first['user'].first['games'].first['game'].select { |g| g['game_id'].first == current_mlb_id }
       return [] if data.empty?
+
       game_data = data.first.except('teams')
       team_data = data.map { |t| t['teams'].first['team'] }.first.map { |t| t.except('managers') }
       team_data = team_data.reject { |t| t['type'].present? }
@@ -42,6 +46,7 @@ module Api
     def available_leagues league_ids
       data = parse_yahoo_response(AVAILABLE_LEAGUES_URL + league_ids.join(','))
       return [] if data.empty?
+
       data = data['game'].select { |h| h['game_key'] == [current_mlb_id] }
       game_data = data.first.except('leagues')
       league_data = data.map { |l| l['leagues'].first['league'] }.first

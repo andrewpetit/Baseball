@@ -18,6 +18,7 @@ RSpec.describe YahooAccessToken, type: :model do
       allow(auth_code).to receive(:get_token).and_return(token)
       allow(token).to receive(:to_hash).and_return(token_hash)
     end
+
     it 'saves an access token' do
       expect do
         yahoo_access_token.access_token_set code_value
@@ -34,6 +35,7 @@ RSpec.describe YahooAccessToken, type: :model do
       allow(token).to receive(:to_hash).and_return(token_hash)
       yahoo_access_token.token
     end
+
     context 'with valid token' do
       it 'is not refreshed' do
         expect(token).not_to have_received(:refresh!)

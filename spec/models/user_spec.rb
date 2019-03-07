@@ -130,6 +130,15 @@ RSpec.describe User, type: :model do
           expect(FantasyBaseballTeam.last.is_active).to be_truthy
         end
       end
+
+      context 'with no matching api team' do
+        let(:api_teams) { [] }
+
+        it 'sets team to false' do
+          expect(user.deactivate_leagues).to be_truthy
+          expect(FantasyBaseballTeam.last.is_active).to be_falsey
+        end
+      end
     end
   end
 end

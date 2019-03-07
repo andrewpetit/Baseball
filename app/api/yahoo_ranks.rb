@@ -11,6 +11,7 @@ module Api
       ranks_url = "https://fantasysports.yahooapis.com/fantasy/v2/league/#{@league_key}/players;player_keys=#{@player_keys}/ranks"
       data = parse_yahoo_response(ranks_url)
       return [] if data.empty? || data['league'].first['players'].empty?
+
       data = data['league'].first['players'].first['player']
       data = remove_brackets data
       map_fields data

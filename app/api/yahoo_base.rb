@@ -23,6 +23,7 @@ module Api
     rescue StandardError => e
       error = "#{e.message}\n#{e.backtrace.inspect}"
       raise e unless Rails.env == 'production'
+
       ErrorMailer.new.error_email('Error response from yahoo', error).deliver!
       []
     end

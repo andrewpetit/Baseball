@@ -13,6 +13,7 @@ RSpec.describe Api::SeatGeekGames, type: :class do
       allow(seat_geek).to receive(:get_games).and_return(nil)
       seat_geek.todays_games
     end
+
     it 'uses todays date' do
       expect(seat_geek).to have_received(:get_games).with(start_date, end_date)
     end

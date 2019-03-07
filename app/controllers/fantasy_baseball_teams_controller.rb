@@ -92,6 +92,7 @@ class FantasyBaseballTeamsController < ApplicationController
                   :team_name,
                   :league_name,
                   :is_active,
+                  :season,
                   :auto_update,
                   :team_icon_url)
   end

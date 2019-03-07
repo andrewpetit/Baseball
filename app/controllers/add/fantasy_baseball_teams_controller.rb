@@ -23,6 +23,7 @@ module Add
     # GET /add/fantasy_baseball_teams
     def index
       return @fantasy_baseball_teams = {} unless current_user.yahoo_auth?
+
       @fantasy_baseball_teams = current_user.unadded_teams
     end
   end

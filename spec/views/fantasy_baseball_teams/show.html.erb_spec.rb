@@ -10,6 +10,7 @@ RSpec.describe 'fantasy_baseball_teams/show', type: :view do
     allow(fantasy_baseball_team).to receive(:current_roster).and_return([]) # TODO: test for current roster shit
     assign(:fantasy_baseball_team, fantasy_baseball_team)
   end
+
   it 'renders attributes in <p>' do
     render
     expect(rendered).to match(/League Key/)

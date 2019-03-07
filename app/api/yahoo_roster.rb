@@ -11,6 +11,7 @@ module Api
       roster_url = "https://fantasysports.yahooapis.com/fantasy/v2/team/#{@league_key}.t.#{@team_id}/roster/players"
       data = parse_yahoo_response(roster_url)
       return [] if team_missing? data
+
       data = data['team'].first['roster'].first['players'].first['player']
       data = remove_brackets data
       map_fields data

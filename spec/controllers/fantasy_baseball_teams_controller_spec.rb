@@ -21,7 +21,8 @@ RSpec.describe FantasyBaseballTeamsController, type: :controller do
       league_name: 'Test League',
       is_active: true,
       auto_update: true,
-      team_icon_url: ''
+      team_icon_url: '',
+      season: '2017'
     }
   end
 

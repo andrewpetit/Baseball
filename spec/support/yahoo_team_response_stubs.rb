@@ -9,7 +9,8 @@ RSpec.shared_context 'yahoo_team_response_stubs' do
           league_name: 'Redlegs Invitational',
           is_active: nil,
           auto_update: nil,
-          team_icon_url: 'https://s.yimg.com/dh/ap/fantasy/img/mlb/icon_3_lg.gif'
+          team_icon_url: 'https://s.yimg.com/dh/ap/fantasy/img/mlb/icon_3_lg.gif',
+          season: '2017'
   end
 
   let(:valid_team2) do
@@ -22,7 +23,8 @@ RSpec.shared_context 'yahoo_team_response_stubs' do
           league_name: 'Redlegs Invitational',
           is_active: nil,
           auto_update: nil,
-          team_icon_url: 'https://s.yimg.com/dh/ap/fantasy/img/mlb/icon_3_lg.gif'
+          team_icon_url: 'https://s.yimg.com/dh/ap/fantasy/img/mlb/icon_3_lg.gif',
+          season: '2017'
   end
 
   let(:valid_user_teams) do

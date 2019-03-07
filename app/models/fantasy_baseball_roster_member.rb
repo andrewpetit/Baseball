@@ -28,11 +28,13 @@ class FantasyBaseballRosterMember < ApplicationRecord
 
   def season_rank
     return nil if player_ranks.nil?
+
     @season_rank ||= player_ranks.find { |r| r['rank_type'] == ['S'] }['rank_value'].first.to_i
   end
 
   def original_rank
     return nil if player_ranks.nil?
+
     @original_rank ||= player_ranks.find { |r| r['rank_type'] == ['OR'] }['rank_value'].first.to_i
   end
 end

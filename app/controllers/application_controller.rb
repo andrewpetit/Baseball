@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
     yield
   rescue StandardError => e
     raise e unless Rails.env == 'production'
+
     error = "#{e.message}\n#{e.backtrace.inspect}"
     ErrorMailer.new.error_email('Error', error).deliver!
   end

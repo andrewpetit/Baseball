@@ -59,6 +59,7 @@ RSpec.describe Api::YahooTeam, type: :class do
           .with(described_class::AVAILABLE_LEAGUES_URL + '370.l.85254')
           .and_return(leagues_response)
       end
+
       it 'exludes invalid leagues' do
         yahoo_team.user_teams
         expect(yahoo_team).to have_received(:parse_yahoo_response)

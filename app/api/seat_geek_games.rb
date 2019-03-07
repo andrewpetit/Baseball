@@ -39,8 +39,10 @@ module Api
 
     def parse_response response
       return [] unless response.message == 'OK'
+
       json = JSON.parse(response.body)
       return [] unless json['events'].any?
+
       games = json['events'].flat_map { |e| e['performers'] }
       games = games.map do |p|
         {

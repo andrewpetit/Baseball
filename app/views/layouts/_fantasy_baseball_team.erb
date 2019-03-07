@@ -12,13 +12,17 @@
     <div><strong>League Key:</strong></div>
     <div><strong>Roster Sort:</strong></div>
     <div><strong>Auto Update:</strong></div>
-    <div><strong>Active</strong></div>
+    <div><strong>Season</strong></div>
   </div>
   <div class='col-8 league-row'>
     <div><%= fantasy_baseball_team.league_key %></div>
     <div><%= fantasy_baseball_team.roster_sort.description %></div>
     <div><%= fantasy_baseball_team.auto_update %></div>
-    <div><%= fantasy_baseball_team.is_active %></div>
+  <% if fantasy_baseball_team.is_active %>
+    <div><%= fantasy_baseball_team.season %><%= ' (active)' %></div>
+  <% else %>
+    <div><%= fantasy_baseball_team.season %><span style='color:#d9534f'><%= ' (inactive)' %></span></div>
+  <% end %>
   </div>
 </div>
 <div class='row display-flex button-row'>

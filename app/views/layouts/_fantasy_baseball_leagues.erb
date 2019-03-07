@@ -7,12 +7,14 @@
       <div class='col-10 league-row'>
         <div><strong><%= fantasy_baseball_team.team_name %></strong></div>
         <div><strong><%= fantasy_baseball_team.league_name %></strong></div>
+        <div><strong><%= fantasy_baseball_team.season %></strong></div>
         <div><%= link_to 'Add Team', new_fantasy_baseball_team_path(:id => fantasy_baseball_team.league_key) %></div>
       </div>
     <% else %>
       <div class='col-10 league-row'>
         <div><strong><%= link_to fantasy_baseball_team.team_name, fantasy_baseball_team_path(fantasy_baseball_team) %></strong></div>
         <div><strong><%= fantasy_baseball_team.league_name %></strong></div>
+        <div><strong><%= fantasy_baseball_team.season %><span style='color:#d9534f'><%= ' (inactive)' unless fantasy_baseball_team.is_active %></span></strong></div>
         <div><%= link_to 'Edit', edit_fantasy_baseball_team_path(fantasy_baseball_team) %></div>
       </div>
     <% end %>

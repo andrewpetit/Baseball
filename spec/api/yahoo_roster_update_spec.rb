@@ -1,9 +1,20 @@
 require 'rails_helper'
-require 'xmlsimple'
 require 'nokogiri'
 
 RSpec.describe Api::YahooRosterUpdate, type: :class do
   include_context 'yahoo_roster_response_stubs'
+
+  # rubocop:disable Metrics/LineLength
+  let(:post_response_xml) do
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+<fantasy_content xml:lang=\"en-US\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/team/388.l.161732.t.11/roster\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://fantasysports.yahooapis.com/fantasy/v2/base.rng\">
+  <confirmation>
+    <status>success</status>
+  </confirmation>
+</fantasy_content>
+<!-- fanos1520.sports.bf1.yahoo.com Thu Apr  4 15:34:48 UTC 2019 -->"
+  end
+  # rubocop:enable Metrics/LineLength
 
   let(:roster_update) { described_class.new(fantasy_baseball_team, junk) }
   let(:roster_sort) { create :roster_sort }
@@ -17,7 +28,7 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
   let(:mlb_id) { '370' }
 
   before do
-    allow(yahoo_roster).to receive(:parse_yahoo_response).and_return(roster_response)
+    allow(yahoo_roster).to receive(:raw_response).and_return(roster_response)
     allow(fantasy_baseball_team).to receive(:sorted_roster).and_return(roster_members)
     roster_members.each { |p| p.updated_position = 'SS' }
   end
@@ -30,7 +41,7 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
 
   describe '#update_roster' do
     before do
-      allow(roster_update).to receive(:post_and_parse_yahoo_response).and_return(nil)
+      allow(roster_update).to receive(:raw_put).and_return(post_response_xml)
       roster_update.update_roster(update_type)
     end
 
@@ -43,14 +54,14 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
     end
 
     it 'posts the roster' do
-      expect(roster_update).to have_received(:post_and_parse_yahoo_response)
+      expect(roster_update).to have_received(:raw_put)
     end
 
     describe 'undrafted' do
       let(:roster_members) { [] }
 
       it 'does not process' do
-        expect(roster_update).not_to have_received(:post_and_parse_yahoo_response)
+        expect(roster_update).not_to have_received(:raw_put)
       end
     end
   end

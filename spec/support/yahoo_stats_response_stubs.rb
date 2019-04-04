@@ -1,969 +1,3346 @@
 RSpec.shared_context 'yahoo_stats_response_stubs' do
   let(:stats_response) do
-    { 'xml:lang' => 'en-US',
-      'yahoo:uri' =>
-    'http://fantasysports.yahooapis.com/fantasy/v2/league/370.l.85254/players;player_keys=370.p.8609,370.p.8171,370.p.9174,370.p.8588,370.p.8401,370.p.8859,370.p.8080,370.p.8861,370.p.6039,370.p.8034,370.p.9338,370.p.9107,370.p.8057,370.p.9604,370.p.8680,370.p.8780,370.p.9347,370.p.7401,370.p.9121,370.p.7048,370.p.9701,370.p.9123,370.p.9635,370.p.9245,370.p.9597/stats',
-      'time' => '134.8888874054ms',
-      'copyright' => 'Data provided by Yahoo! and STATS, LLC',
-      'refresh_rate' => '60',
-      'xmlns:yahoo' => 'http://www.yahooapis.com/v1/base.rng',
-      'xmlns' => 'http://fantasysports.yahooapis.com/fantasy/v2/base.rng',
-      'league' =>
-    [{ 'league_key' => ['370.l.85254'],
-       'league_id' => ['85254'],
-       'name' => ['Redlegs Invitational'],
-       'url' => ['https://baseball.fantasysports.yahoo.com/archive/mlb/2017/85254'],
-       'draft_status' => ['postdraft'],
-       'num_teams' => ['9'],
-       'edit_key' => ['2018-01-21'],
-       'weekly_deadline' => [{}],
-       'league_update_timestamp' => ['1506928587'],
-       'scoring_type' => ['roto'],
-       'league_type' => ['private'],
-       'renew' => ['357_74377'],
-       'renewed' => [{}],
-       'allow_add_to_dl_extra_pos' => ['0'],
-       'is_pro_league' => ['0'],
-       'is_cash_league' => ['0'],
-       'start_date' => ['2017-04-03'],
-       'end_date' => ['2017-10-01'],
-       'is_finished' => ['1'],
-       'game_code' => ['mlb'],
-       'season' => ['2017'],
-       'players' => players }] }
+    "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
+    <fantasy_content xml:lang=\"en-US\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/league/388.l.161732/players;player_keys=388.p.10959,388.p.10344,388.p.9771,388.p.10235,388.p.9897,388.p.9320,388.p.7977,388.p.9338,388.p.8868,388.p.9385,388.p.9104,388.p.10626,388.p.9565,388.p.11016,388.p.7914,388.p.9597,388.p.10683,388.p.8641,388.p.9616,388.p.10592,388.p.8175,388.p.7578,388.p.10575/stats\" time=\"79.097032546997ms\" copyright=\"Data provided by Yahoo! and STATS, LLC\" refresh_rate=\"60\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://fantasysports.yahooapis.com/fantasy/v2/base.rng\">
+      <league>
+        <league_key>388.l.161732</league_key>
+        <league_id>161732</league_id>
+        <name>Yahoo Public 161732</name>
+        <url>https://baseball.fantasysports.yahoo.com/b1/161732</url>
+        <logo_url>https://s.yimg.com/cv/api/default/20180206/default-league-logo@2x.png</logo_url>
+        <draft_status>postdraft</draft_status>
+        <num_teams>12</num_teams>
+        <edit_key>2019-04-02</edit_key>
+        <weekly_deadline/>
+        <league_update_timestamp>1554100663</league_update_timestamp>
+        <scoring_type>roto</scoring_type>
+        <league_type>public</league_type>
+        <renew/>
+        <renewed/>
+        <iris_group_chat_id/>
+        <allow_add_to_dl_extra_pos>0</allow_add_to_dl_extra_pos>
+        <is_pro_league>0</is_pro_league>
+        <is_cash_league>0</is_cash_league>
+        <start_date>2019-03-28</start_date>
+        <end_date>2019-09-29</end_date>
+        <game_code>mlb</game_code>
+        <season>2019</season>
+        #{players}
+      </league>
+    </fantasy_content>
+    <!-- fanos424.sports.bf1.yahoo.com Mon Apr  1 14:13:55 UTC 2019 -->"
   end
 
   let(:players) do
-    [{ 'count' => '25',
-       'player' =>
-    [{ 'player_key' => ['370.p.8609'],
-       'player_id' => ['8609'],
-       'name' =>
-    [{ 'full' => ['Jonathan Lucroy'],
-       'first' => ['Jonathan'],
-       'last' => ['Lucroy'],
-       'ascii_first' => ['Jonathan'],
-       'ascii_last' => ['Lucroy'] }],
-       'status' => ['NA'],
-       'status_full' => ['Not Active'],
-       'editorial_player_key' => ['mlb.p.8609'],
-       'editorial_team_key' => ['mlb.t.27'],
-       'editorial_team_full_name' => ['Colorado Rockies'],
-       'editorial_team_abbr' => ['Col'],
-       'uniform_number' => ['21'],
-       'display_position' => ['C,1B'],
-       'headshot' =>
-    [{ 'url' =>
-      ['https://s.yimg.com/iu/api/res/1.2/3dFS2.gICGUKPOhAkOyIpg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8609.1.png'],
-       'size' => ['small'] }],
-       'image_url' =>
-      ['https://s.yimg.com/iu/api/res/1.2/3dFS2.gICGUKPOhAkOyIpg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8609.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => %w[C 1B Util NA] }],
-       'player_stats' =>
-      [{ 'coverage_type' => ['season'],
-         'season' => ['2017'],
-         'stats' =>
-      [{ 'stat' =>
-        [{ 'stat_id' => ['60'], 'value' => ['112/423'] },
-         { 'stat_id' => ['7'], 'value' => ['45'] },
-         { 'stat_id' => ['8'], 'value' => ['112'] },
-         { 'stat_id' => ['12'], 'value' => ['6'] },
-         { 'stat_id' => ['13'], 'value' => ['40'] },
-         { 'stat_id' => ['16'], 'value' => ['1'] },
-         { 'stat_id' => ['21'], 'value' => ['51'] },
-         { 'stat_id' => ['3'], 'value' => ['.265'] },
-         { 'stat_id' => ['4'], 'value' => ['.345'] }] }] }] },
-     { 'player_key' => ['370.p.8171'],
-       'player_id' => ['8171'],
-       'name' =>
-         [{ 'full' => ['Jay Bruce'],
-            'first' => ['Jay'],
-            'last' => ['Bruce'],
-            'ascii_first' => ['Jay'],
-            'ascii_last' => ['Bruce'] }],
-       'editorial_player_key' => ['mlb.p.8171'],
-       'editorial_team_key' => ['mlb.t.21'],
-       'editorial_team_full_name' => ['New York Mets'],
-       'editorial_team_abbr' => ['NYM'],
-       'uniform_number' => ['32'],
-       'display_position' => ['1B,OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/ru7lzw4xbnXhz4WHkJfo5g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8171.2.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/ru7lzw4xbnXhz4WHkJfo5g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8171.2.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => %w[1B OF Util] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['141/555'] },
-              { 'stat_id' => ['7'], 'value' => ['82'] },
-              { 'stat_id' => ['8'], 'value' => ['141'] },
-              { 'stat_id' => ['12'], 'value' => ['36'] },
-              { 'stat_id' => ['13'], 'value' => ['101'] },
-              { 'stat_id' => ['16'], 'value' => ['1'] },
-              { 'stat_id' => ['21'], 'value' => ['139'] },
-              { 'stat_id' => ['3'], 'value' => ['.254'] },
-              { 'stat_id' => ['4'], 'value' => ['.324'] }] }] }] },
-     { 'player_key' => ['370.p.9174'],
-       'player_id' => ['9174'],
-       'name' =>
-         [{ 'full' => ['Brian Dozier'],
-            'first' => ['Brian'],
-            'last' => ['Dozier'],
-            'ascii_first' => ['Brian'],
-            'ascii_last' => ['Dozier'] }],
-       'editorial_player_key' => ['mlb.p.9174'],
-       'editorial_team_key' => ['mlb.t.9'],
-       'editorial_team_full_name' => ['Minnesota Twins'],
-       'editorial_team_abbr' => ['Min'],
-       'uniform_number' => ['2'],
-       'display_position' => ['2B'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/AYs.YBOuSr0oSZu9lHV3lg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9174.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/AYs.YBOuSr0oSZu9lHV3lg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9174.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['2B', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['167/617'] },
-              { 'stat_id' => ['7'], 'value' => ['106'] },
-              { 'stat_id' => ['8'], 'value' => ['167'] },
-              { 'stat_id' => ['12'], 'value' => ['34'] },
-              { 'stat_id' => ['13'], 'value' => ['93'] },
-              { 'stat_id' => ['16'], 'value' => ['16'] },
-              { 'stat_id' => ['21'], 'value' => ['141'] },
-              { 'stat_id' => ['3'], 'value' => ['.271'] },
-              { 'stat_id' => ['4'], 'value' => ['.359'] }] }] }] },
-     { 'player_key' => ['370.p.8588'],
-       'player_id' => ['8588'],
-       'name' =>
-         [{ 'full' => ['Justin Turner'],
-            'first' => ['Justin'],
-            'last' => ['Turner'],
-            'ascii_first' => ['Justin'],
-            'ascii_last' => ['Turner'] }],
-       'editorial_player_key' => ['mlb.p.8588'],
-       'editorial_team_key' => ['mlb.t.19'],
-       'editorial_team_full_name' => ['Los Angeles Dodgers'],
-       'editorial_team_abbr' => ['LAD'],
-       'uniform_number' => ['10'],
-       'display_position' => ['3B'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/d0w_8.TVeD7sdygZPk0GzQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8588.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/d0w_8.TVeD7sdygZPk0GzQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8588.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['3B', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['147/457'] },
-              { 'stat_id' => ['7'], 'value' => ['72'] },
-              { 'stat_id' => ['8'], 'value' => ['147'] },
-              { 'stat_id' => ['12'], 'value' => ['21'] },
-              { 'stat_id' => ['13'], 'value' => ['71'] },
-              { 'stat_id' => ['16'], 'value' => ['7'] },
-              { 'stat_id' => ['21'], 'value' => ['56'] },
-              { 'stat_id' => ['3'], 'value' => ['.322'] },
-              { 'stat_id' => ['4'], 'value' => ['.415'] }] }] }] },
-     { 'player_key' => ['370.p.8401'],
-       'player_id' => ['8401'],
-       'name' =>
-         [{ 'full' => ['Elvis Andrus'],
-            'first' => ['Elvis'],
-            'last' => ['Andrus'],
-            'ascii_first' => ['Elvis'],
-            'ascii_last' => ['Andrus'] }],
-       'editorial_player_key' => ['mlb.p.8401'],
-       'editorial_team_key' => ['mlb.t.13'],
-       'editorial_team_full_name' => ['Texas Rangers'],
-       'editorial_team_abbr' => ['Tex'],
-       'uniform_number' => ['1'],
-       'display_position' => ['SS'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/10zy_teMg7qLbdW3Hbf2uQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8401.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/10zy_teMg7qLbdW3Hbf2uQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8401.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['SS', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['191/643'] },
-              { 'stat_id' => ['7'], 'value' => ['100'] },
-              { 'stat_id' => ['8'], 'value' => ['191'] },
-              { 'stat_id' => ['12'], 'value' => ['20'] },
-              { 'stat_id' => ['13'], 'value' => ['88'] },
-              { 'stat_id' => ['16'], 'value' => ['25'] },
-              { 'stat_id' => ['21'], 'value' => ['101'] },
-              { 'stat_id' => ['3'], 'value' => ['.297'] },
-              { 'stat_id' => ['4'], 'value' => ['.337'] }] }] }] },
-     { 'player_key' => ['370.p.8859'],
-       'player_id' => ['8859'],
-       'name' =>
-         [{ 'full' => ['Wil Myers'],
-            'first' => ['Wil'],
-            'last' => ['Myers'],
-            'ascii_first' => ['Wil'],
-            'ascii_last' => ['Myers'] }],
-       'editorial_player_key' => ['mlb.p.8859'],
-       'editorial_team_key' => ['mlb.t.25'],
-       'editorial_team_full_name' => ['San Diego Padres'],
-       'editorial_team_abbr' => ['SD'],
-       'uniform_number' => ['4'],
-       'display_position' => ['1B,OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/LaFCqd0QDwdR71gsiM2ZLw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8859.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/LaFCqd0QDwdR71gsiM2ZLw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8859.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => %w[1B OF Util] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['138/567'] },
-              { 'stat_id' => ['7'], 'value' => ['80'] },
-              { 'stat_id' => ['8'], 'value' => ['138'] },
-              { 'stat_id' => ['12'], 'value' => ['30'] },
-              { 'stat_id' => ['13'], 'value' => ['74'] },
-              { 'stat_id' => ['16'], 'value' => ['20'] },
-              { 'stat_id' => ['21'], 'value' => ['180'] },
-              { 'stat_id' => ['3'], 'value' => ['.243'] },
-              { 'stat_id' => ['4'], 'value' => ['.328'] }] }] }] },
-     { 'player_key' => ['370.p.8080'],
-       'player_id' => ['8080'],
-       'name' =>
-         [{ 'full' => ['Justin Upton'],
-            'first' => ['Justin'],
-            'last' => ['Upton'],
-            'ascii_first' => ['Justin'],
-            'ascii_last' => ['Upton'] }],
-       'editorial_player_key' => ['mlb.p.8080'],
-       'editorial_team_key' => ['mlb.t.3'],
-       'editorial_team_full_name' => ['Los Angeles Angels'],
-       'editorial_team_abbr' => ['LAA'],
-       'uniform_number' => ['9'],
-       'display_position' => ['OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/tEqhYgj8Ks5vJ2cHfG3Gpw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8080.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/tEqhYgj8Ks5vJ2cHfG3Gpw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8080.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['OF', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['152/557'] },
-              { 'stat_id' => ['7'], 'value' => ['100'] },
-              { 'stat_id' => ['8'], 'value' => ['152'] },
-              { 'stat_id' => ['12'], 'value' => ['35'] },
-              { 'stat_id' => ['13'], 'value' => ['109'] },
-              { 'stat_id' => ['16'], 'value' => ['14'] },
-              { 'stat_id' => ['21'], 'value' => ['180'] },
-              { 'stat_id' => ['3'], 'value' => ['.273'] },
-              { 'stat_id' => ['4'], 'value' => ['.361'] }] }] }] },
-     { 'player_key' => ['370.p.8861'],
-       'player_id' => ['8861'],
-       'name' =>
-         [{ 'full' => ['Mike Trout'],
-            'first' => ['Mike'],
-            'last' => ['Trout'],
-            'ascii_first' => ['Mike'],
-            'ascii_last' => ['Trout'] }],
-       'editorial_player_key' => ['mlb.p.8861'],
-       'editorial_team_key' => ['mlb.t.3'],
-       'editorial_team_full_name' => ['Los Angeles Angels'],
-       'editorial_team_abbr' => ['LAA'],
-       'uniform_number' => ['27'],
-       'display_position' => ['OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/_R7m_cSSt6eMCpeL3woQ8Q--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8861.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/_R7m_cSSt6eMCpeL3woQ8Q--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8861.1.png'],
-       'is_undroppable' => ['1'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['OF', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['123/402'] },
-              { 'stat_id' => ['7'], 'value' => ['92'] },
-              { 'stat_id' => ['8'], 'value' => ['123'] },
-              { 'stat_id' => ['12'], 'value' => ['33'] },
-              { 'stat_id' => ['13'], 'value' => ['72'] },
-              { 'stat_id' => ['16'], 'value' => ['22'] },
-              { 'stat_id' => ['21'], 'value' => ['90'] },
-              { 'stat_id' => ['3'], 'value' => ['.306'] },
-              { 'stat_id' => ['4'], 'value' => ['.442'] }] }] }] },
-     { 'player_key' => ['370.p.6039'],
-       'player_id' => ['6039'],
-       'name' =>
-         [{ 'full' => ['Adrián Béltre'],
-            'first' => ['Adrián'],
-            'last' => ['Béltre'],
-            'ascii_first' => ['Adrian'],
-            'ascii_last' => ['Beltre'] }],
-       'editorial_player_key' => ['mlb.p.6039'],
-       'editorial_team_key' => ['mlb.t.13'],
-       'editorial_team_full_name' => ['Texas Rangers'],
-       'editorial_team_abbr' => ['Tex'],
-       'uniform_number' => ['29'],
-       'display_position' => ['3B'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/7r0HklztY6hnLuXucKrp3Q--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/6039.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/7r0HklztY6hnLuXucKrp3Q--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/6039.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['3B', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['106/340'] },
-              { 'stat_id' => ['7'], 'value' => ['47'] },
-              { 'stat_id' => ['8'], 'value' => ['106'] },
-              { 'stat_id' => ['12'], 'value' => ['17'] },
-              { 'stat_id' => ['13'], 'value' => ['71'] },
-              { 'stat_id' => ['16'], 'value' => ['1'] },
-              { 'stat_id' => ['21'], 'value' => ['52'] },
-              { 'stat_id' => ['3'], 'value' => ['.312'] },
-              { 'stat_id' => ['4'], 'value' => ['.383'] }] }] }] },
-     { 'player_key' => ['370.p.8034'],
-       'player_id' => ['8034'],
-       'name' =>
-         [{ 'full' => ['Ryan Braun'],
-            'first' => ['Ryan'],
-            'last' => ['Braun'],
-            'ascii_first' => ['Ryan'],
-            'ascii_last' => ['Braun'] }],
-       'editorial_player_key' => ['mlb.p.8034'],
-       'editorial_team_key' => ['mlb.t.8'],
-       'editorial_team_full_name' => ['Milwaukee Brewers'],
-       'editorial_team_abbr' => ['Mil'],
-       'uniform_number' => ['8'],
-       'display_position' => ['OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/PIZ.6C3GEWfofG61x1akZw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8034.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/PIZ.6C3GEWfofG61x1akZw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8034.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['OF', 'Util'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['102/380'] },
-              { 'stat_id' => ['7'], 'value' => ['58'] },
-              { 'stat_id' => ['8'], 'value' => ['102'] },
-              { 'stat_id' => ['12'], 'value' => ['17'] },
-              { 'stat_id' => ['13'], 'value' => ['52'] },
-              { 'stat_id' => ['16'], 'value' => ['12'] },
-              { 'stat_id' => ['21'], 'value' => ['76'] },
-              { 'stat_id' => ['3'], 'value' => ['.268'] },
-              { 'stat_id' => ['4'], 'value' => ['.336'] }] }] }] },
-     { 'player_key' => ['370.p.9338'],
-       'player_id' => ['9338'],
-       'name' =>
-         [{ 'full' => ['Jackie Bradley Jr.'],
-            'first' => ['Jackie'],
-            'last' => ['Bradley Jr.'],
-            'ascii_first' => ['Jackie'],
-            'ascii_last' => ['Bradley Jr.'] }],
-       'editorial_player_key' => ['mlb.p.9338'],
-       'editorial_team_key' => ['mlb.t.2'],
-       'editorial_team_full_name' => ['Boston Red Sox'],
-       'editorial_team_abbr' => ['Bos'],
-       'uniform_number' => ['19'],
-       'display_position' => ['OF'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/RUz7ih5Tp4lq9RsHNRqZVQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9338.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/RUz7ih5Tp4lq9RsHNRqZVQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9338.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['OF', 'Util'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['118/482'] },
-              { 'stat_id' => ['7'], 'value' => ['58'] },
-              { 'stat_id' => ['8'], 'value' => ['118'] },
-              { 'stat_id' => ['12'], 'value' => ['17'] },
-              { 'stat_id' => ['13'], 'value' => ['63'] },
-              { 'stat_id' => ['16'], 'value' => ['8'] },
-              { 'stat_id' => ['21'], 'value' => ['124'] },
-              { 'stat_id' => ['3'], 'value' => ['.245'] },
-              { 'stat_id' => ['4'], 'value' => ['.323'] }] }] }] },
-     { 'player_key' => ['370.p.9107'],
-       'player_id' => ['9107'],
-       'name' =>
-         [{ 'full' => ['Jedd Gyorko'],
-            'first' => ['Jedd'],
-            'last' => ['Gyorko'],
-            'ascii_first' => ['Jedd'],
-            'ascii_last' => ['Gyorko'] }],
-       'editorial_player_key' => ['mlb.p.9107'],
-       'editorial_team_key' => ['mlb.t.24'],
-       'editorial_team_full_name' => ['St. Louis Cardinals'],
-       'editorial_team_abbr' => ['StL'],
-       'uniform_number' => ['3'],
-       'display_position' => ['1B,2B,3B,SS'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/F2uJKpy9SKZOj1riRjo.Zg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9107.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/F2uJKpy9SKZOj1riRjo.Zg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9107.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => %w[1B 2B 3B SS Util] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['116/426'] },
-              { 'stat_id' => ['7'], 'value' => ['52'] },
-              { 'stat_id' => ['8'], 'value' => ['116'] },
-              { 'stat_id' => ['12'], 'value' => ['20'] },
-              { 'stat_id' => ['13'], 'value' => ['67'] },
-              { 'stat_id' => ['16'], 'value' => ['6'] },
-              { 'stat_id' => ['21'], 'value' => ['105'] },
-              { 'stat_id' => ['3'], 'value' => ['.272'] },
-              { 'stat_id' => ['4'], 'value' => ['.341'] }] }] }] },
-     { 'player_key' => ['370.p.8057'],
-       'player_id' => ['8057'],
-       'name' =>
-         [{ 'full' => ['Chase Headley'],
-            'first' => ['Chase'],
-            'last' => ['Headley'],
-            'ascii_first' => ['Chase'],
-            'ascii_last' => ['Headley'] }],
-       'editorial_player_key' => ['mlb.p.8057'],
-       'editorial_team_key' => ['mlb.t.25'],
-       'editorial_team_full_name' => ['San Diego Padres'],
-       'editorial_team_abbr' => ['SD'],
-       'uniform_number' => ['12'],
-       'display_position' => ['1B,3B'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/RySVDzxcLy2xYtjmUoEAwA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8057.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/RySVDzxcLy2xYtjmUoEAwA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8057.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => %w[1B 3B Util] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['140/512'] },
-              { 'stat_id' => ['7'], 'value' => ['77'] },
-              { 'stat_id' => ['8'], 'value' => ['140'] },
-              { 'stat_id' => ['12'], 'value' => ['12'] },
-              { 'stat_id' => ['13'], 'value' => ['61'] },
-              { 'stat_id' => ['16'], 'value' => ['9'] },
-              { 'stat_id' => ['21'], 'value' => ['132'] },
-              { 'stat_id' => ['3'], 'value' => ['.273'] },
-              { 'stat_id' => ['4'], 'value' => ['.352'] }] }] }] },
-     { 'player_key' => ['370.p.9604'],
-       'player_id' => ['9604'],
-       'name' =>
-         [{ 'full' => ['Addison Russell'],
-            'first' => ['Addison'],
-            'last' => ['Russell'],
-            'ascii_first' => ['Addison'],
-            'ascii_last' => ['Russell'] }],
-       'editorial_player_key' => ['mlb.p.9604'],
-       'editorial_team_key' => ['mlb.t.16'],
-       'editorial_team_full_name' => ['Chicago Cubs'],
-       'editorial_team_abbr' => ['ChC'],
-       'uniform_number' => ['27'],
-       'display_position' => ['SS'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/OOWWRd4AT0OXk9dduRWR.w--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9604.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/OOWWRd4AT0OXk9dduRWR.w--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9604.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['B'],
-       'eligible_positions' => [{ 'position' => ['SS', 'Util'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['60'], 'value' => ['84/352'] },
-              { 'stat_id' => ['7'], 'value' => ['52'] },
-              { 'stat_id' => ['8'], 'value' => ['84'] },
-              { 'stat_id' => ['12'], 'value' => ['12'] },
-              { 'stat_id' => ['13'], 'value' => ['43'] },
-              { 'stat_id' => ['16'], 'value' => ['2'] },
-              { 'stat_id' => ['21'], 'value' => ['91'] },
-              { 'stat_id' => ['3'], 'value' => ['.239'] },
-              { 'stat_id' => ['4'], 'value' => ['.304'] }] }] }] },
-     { 'player_key' => ['370.p.8680'],
-       'player_id' => ['8680'],
-       'name' =>
-         [{ 'full' => ['Mike Leake'],
-            'first' => ['Mike'],
-            'last' => ['Leake'],
-            'ascii_first' => ['Mike'],
-            'ascii_last' => ['Leake'] }],
-       'editorial_player_key' => ['mlb.p.8680'],
-       'editorial_team_key' => ['mlb.t.12'],
-       'editorial_team_full_name' => ['Seattle Mariners'],
-       'editorial_team_abbr' => ['Sea'],
-       'uniform_number' => ['8'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/Y7U5hX4u94EucYwfZmvFCw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8680.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/Y7U5hX4u94EucYwfZmvFCw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/8680.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['186.0'] },
-              { 'stat_id' => ['28'], 'value' => ['10'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['130'] },
-              { 'stat_id' => ['26'], 'value' => ['3.92'] },
-              { 'stat_id' => ['27'], 'value' => ['1.28'] },
-              { 'stat_id' => ['83'], 'value' => ['18'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.8780'],
-       'player_id' => ['8780'],
-       'name' =>
-         [{ 'full' => ['Chris Sale'],
-            'first' => ['Chris'],
-            'last' => ['Sale'],
-            'ascii_first' => ['Chris'],
-            'ascii_last' => ['Sale'] }],
-       'editorial_player_key' => ['mlb.p.8780'],
-       'editorial_team_key' => ['mlb.t.2'],
-       'editorial_team_full_name' => ['Boston Red Sox'],
-       'editorial_team_abbr' => ['Bos'],
-       'uniform_number' => ['41'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/mGqXsx5XaFVOGmS34Q_0WA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/20170403/8780.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/mGqXsx5XaFVOGmS34Q_0WA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/20170403/8780.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['214.1'] },
-              { 'stat_id' => ['28'], 'value' => ['17'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['308'] },
-              { 'stat_id' => ['26'], 'value' => ['2.90'] },
-              { 'stat_id' => ['27'], 'value' => ['0.97'] },
-              { 'stat_id' => ['83'], 'value' => ['23'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9347'],
-       'player_id' => ['9347'],
-       'name' =>
-         [{ 'full' => ['Brandon Maurer'],
-            'first' => ['Brandon'],
-            'last' => ['Maurer'],
-            'ascii_first' => ['Brandon'],
-            'ascii_last' => ['Maurer'] }],
-       'editorial_player_key' => ['mlb.p.9347'],
-       'editorial_team_key' => ['mlb.t.7'],
-       'editorial_team_full_name' => ['Kansas City Royals'],
-       'editorial_team_abbr' => ['KC'],
-       'uniform_number' => ['32'],
-       'display_position' => ['RP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/LyZ91SSG9VonFzeN3MJBxw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9347.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/LyZ91SSG9VonFzeN3MJBxw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9347.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['RP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['59.1'] },
-              { 'stat_id' => ['28'], 'value' => ['3'] },
-              { 'stat_id' => ['32'], 'value' => ['22'] },
-              { 'stat_id' => ['42'], 'value' => ['59'] },
-              { 'stat_id' => ['26'], 'value' => ['6.52'] },
-              { 'stat_id' => ['27'], 'value' => ['1.55'] },
-              { 'stat_id' => ['83'], 'value' => ['0'] },
-              { 'stat_id' => ['84'], 'value' => ['4'] }] }] }] },
-     { 'player_key' => ['370.p.7401'],
-       'player_id' => ['7401'],
-       'name' =>
-         [{ 'full' => ['Santiago Casilla'],
-            'first' => ['Santiago'],
-            'last' => ['Casilla'],
-            'ascii_first' => ['Santiago'],
-            'ascii_last' => ['Casilla'] }],
-       'editorial_player_key' => ['mlb.p.7401'],
-       'editorial_team_key' => ['mlb.t.11'],
-       'editorial_team_full_name' => ['Oakland Athletics'],
-       'editorial_team_abbr' => ['Oak'],
-       'uniform_number' => ['46'],
-       'display_position' => ['RP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/VFeUpD9A9EGw6ImVV3pizw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/20160401/7401.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/VFeUpD9A9EGw6ImVV3pizw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/20160401/7401.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['RP', 'P'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['59.0'] },
-              { 'stat_id' => ['28'], 'value' => ['4'] },
-              { 'stat_id' => ['32'], 'value' => ['16'] },
-              { 'stat_id' => ['42'], 'value' => ['57'] },
-              { 'stat_id' => ['26'], 'value' => ['4.27'] },
-              { 'stat_id' => ['27'], 'value' => ['1.36'] },
-              { 'stat_id' => ['83'], 'value' => ['0'] },
-              { 'stat_id' => ['84'], 'value' => ['7'] }] }] }] },
-     { 'player_key' => ['370.p.9121'],
-       'player_id' => ['9121'],
-       'name' =>
-         [{ 'full' => ['Gerrit Cole'],
-            'first' => ['Gerrit'],
-            'last' => ['Cole'],
-            'ascii_first' => ['Gerrit'],
-            'ascii_last' => ['Cole'] }],
-       'editorial_player_key' => ['mlb.p.9121'],
-       'editorial_team_key' => ['mlb.t.18'],
-       'editorial_team_full_name' => ['Houston Astros'],
-       'editorial_team_abbr' => ['Hou'],
-       'uniform_number' => ['45'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/h6o3bX5u.TWYO2Z8nLbIuQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9121.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/h6o3bX5u.TWYO2Z8nLbIuQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9121.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['203.0'] },
-              { 'stat_id' => ['28'], 'value' => ['12'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['196'] },
-              { 'stat_id' => ['26'], 'value' => ['4.26'] },
-              { 'stat_id' => ['27'], 'value' => ['1.25'] },
-              { 'stat_id' => ['83'], 'value' => ['20'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.7048'],
-       'player_id' => ['7048'],
-       'name' =>
-         [{ 'full' => ['Adam Wainwright'],
-            'first' => ['Adam'],
-            'last' => ['Wainwright'],
-            'ascii_first' => ['Adam'],
-            'ascii_last' => ['Wainwright'] }],
-       'status' => ['DTD'],
-       'status_full' => ['Day-to-Day'],
-       'editorial_player_key' => ['mlb.p.7048'],
-       'editorial_team_key' => ['mlb.t.24'],
-       'editorial_team_full_name' => ['St. Louis Cardinals'],
-       'editorial_team_abbr' => ['StL'],
-       'uniform_number' => ['50'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/KeJFrDD0GIvuV4j8UuLkhw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/7048.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/KeJFrDD0GIvuV4j8UuLkhw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/7048.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['123.1'] },
-              { 'stat_id' => ['28'], 'value' => ['12'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['96'] },
-              { 'stat_id' => ['26'], 'value' => ['5.11'] },
-              { 'stat_id' => ['27'], 'value' => ['1.50'] },
-              { 'stat_id' => ['83'], 'value' => ['8'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9701'],
-       'player_id' => ['9701'],
-       'name' =>
-         [{ 'full' => ['Jacob deGrom'],
-            'first' => ['Jacob'],
-            'last' => ['deGrom'],
-            'ascii_first' => ['Jacob'],
-            'ascii_last' => ['deGrom'] }],
-       'editorial_player_key' => ['mlb.p.9701'],
-       'editorial_team_key' => ['mlb.t.21'],
-       'editorial_team_full_name' => ['New York Mets'],
-       'editorial_team_abbr' => ['NYM'],
-       'uniform_number' => ['48'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/CQsNZcEAW8VdXyqXN1h9KA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9701.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/CQsNZcEAW8VdXyqXN1h9KA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9701.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['201.1'] },
-              { 'stat_id' => ['28'], 'value' => ['15'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['239'] },
-              { 'stat_id' => ['26'], 'value' => ['3.53'] },
-              { 'stat_id' => ['27'], 'value' => ['1.19'] },
-              { 'stat_id' => ['83'], 'value' => ['21'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9123'],
-       'player_id' => ['9123'],
-       'name' =>
-         [{ 'full' => ['Jameson Taillon'],
-            'first' => ['Jameson'],
-            'last' => ['Taillon'],
-            'ascii_first' => ['Jameson'],
-            'ascii_last' => ['Taillon'] }],
-       'editorial_player_key' => ['mlb.p.9123'],
-       'editorial_team_key' => ['mlb.t.23'],
-       'editorial_team_full_name' => ['Pittsburgh Pirates'],
-       'editorial_team_abbr' => ['Pit'],
-       'uniform_number' => ['50'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/hN4_Nlss55GBDVbfGm7qEQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9123.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/hN4_Nlss55GBDVbfGm7qEQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9123.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['133.2'] },
-              { 'stat_id' => ['28'], 'value' => ['8'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['125'] },
-              { 'stat_id' => ['26'], 'value' => ['4.44'] },
-              { 'stat_id' => ['27'], 'value' => ['1.48'] },
-              { 'stat_id' => ['83'], 'value' => ['9'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9635'],
-       'player_id' => ['9635'],
-       'name' =>
-         [{ 'full' => ['Aaron Sanchez'],
-            'first' => ['Aaron'],
-            'last' => ['Sanchez'],
-            'ascii_first' => ['Aaron'],
-            'ascii_last' => ['Sanchez'] }],
-       'status' => ['DTD'],
-       'status_full' => ['Day-to-Day'],
-       'editorial_player_key' => ['mlb.p.9635'],
-       'editorial_team_key' => ['mlb.t.14'],
-       'editorial_team_full_name' => ['Toronto Blue Jays'],
-       'editorial_team_abbr' => ['Tor'],
-       'uniform_number' => ['41'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/QrNheUGj_o9qTn9nzvO0Fg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9635.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/QrNheUGj_o9qTn9nzvO0Fg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9635.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['36.0'] },
-              { 'stat_id' => ['28'], 'value' => ['1'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['24'] },
-              { 'stat_id' => ['26'], 'value' => ['4.25'] },
-              { 'stat_id' => ['27'], 'value' => ['1.72'] },
-              { 'stat_id' => ['83'], 'value' => ['3'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9245'],
-       'player_id' => ['9245'],
-       'name' =>
-         [{ 'full' => ['Matt Harvey'],
-            'first' => ['Matt'],
-            'last' => ['Harvey'],
-            'ascii_first' => ['Matt'],
-            'ascii_last' => ['Harvey'] }],
-       'editorial_player_key' => ['mlb.p.9245'],
-       'editorial_team_key' => ['mlb.t.21'],
-       'editorial_team_full_name' => ['New York Mets'],
-       'editorial_team_abbr' => ['NYM'],
-       'uniform_number' => ['33'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/YTmAtj3BzkNEFFgKLqlRNg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9245.1.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/YTmAtj3BzkNEFFgKLqlRNg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/10162017/9245.1.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['92.2'] },
-              { 'stat_id' => ['28'], 'value' => ['5'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['67'] },
-              { 'stat_id' => ['26'], 'value' => ['6.70'] },
-              { 'stat_id' => ['27'], 'value' => ['1.69'] },
-              { 'stat_id' => ['83'], 'value' => ['4'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] },
-     { 'player_key' => ['370.p.9597'],
-       'player_id' => ['9597'],
-       'name' =>
-         [{ 'full' => ['Noah Syndergaard'],
-            'first' => ['Noah'],
-            'last' => ['Syndergaard'],
-            'ascii_first' => ['Noah'],
-            'ascii_last' => ['Syndergaard'] }],
-       'editorial_player_key' => ['mlb.p.9597'],
-       'editorial_team_key' => ['mlb.t.21'],
-       'editorial_team_full_name' => ['New York Mets'],
-       'editorial_team_abbr' => ['NYM'],
-       'uniform_number' => ['34'],
-       'display_position' => ['SP'],
-       'headshot' =>
-         [{ 'url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/0B.rtdcCuQ89HwuqN3NDYg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9597.png'],
-            'size' => ['small'] }],
-       'image_url' =>
-           ['https://s.yimg.com/iu/api/res/1.2/0B.rtdcCuQ89HwuqN3NDYg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04242017/9597.png'],
-       'is_undroppable' => ['0'],
-       'position_type' => ['P'],
-       'eligible_positions' => [{ 'position' => ['SP', 'P'] }],
-       'has_player_notes' => ['1'],
-       'player_stats' =>
-           [{ 'coverage_type' => ['season'],
-              'season' => ['2017'],
-              'stats' =>
-           [{ 'stat' =>
-             [{ 'stat_id' => ['50'], 'value' => ['30.1'] },
-              { 'stat_id' => ['28'], 'value' => ['1'] },
-              { 'stat_id' => ['32'], 'value' => ['0'] },
-              { 'stat_id' => ['42'], 'value' => ['34'] },
-              { 'stat_id' => ['26'], 'value' => ['2.97'] },
-              { 'stat_id' => ['27'], 'value' => ['1.05'] },
-              { 'stat_id' => ['83'], 'value' => ['4'] },
-              { 'stat_id' => ['84'], 'value' => ['0'] }] }] }] }] }]
+    "<players count=\"23\">
+      <player>
+        <player_key>388.p.10959</player_key>
+        <player_id>10959</player_id>
+        <name>
+          <full>Danny Jansen</full>
+          <first>Danny</first>
+          <last>Jansen</last>
+          <ascii_first>Danny</ascii_first>
+          <ascii_last>Jansen</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10959</editorial_player_key>
+        <editorial_team_key>mlb.t.14</editorial_team_key>
+        <editorial_team_full_name>Toronto Blue Jays</editorial_team_full_name>
+        <editorial_team_abbr>Tor</editorial_team_abbr>
+        <uniform_number>9</uniform_number>
+        <display_position>C</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/L5A6q.QJCvDKNPW84vy5YA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03122018/10959.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/L5A6q.QJCvDKNPW84vy5YA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03122018/10959.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>C</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1554039660</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>2/12</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.167</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>83.3</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10344</player_key>
+        <player_id>10344</player_id>
+        <name>
+          <full>Yuli Gurriel</full>
+          <first>Yuli</first>
+          <last>Gurriel</last>
+          <ascii_first>Yuli</ascii_first>
+          <ascii_last>Gurriel</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10344</editorial_player_key>
+        <editorial_team_key>mlb.t.18</editorial_team_key>
+        <editorial_team_full_name>Houston Astros</editorial_team_full_name>
+        <editorial_team_abbr>Hou</editorial_team_abbr>
+        <uniform_number>10</uniform_number>
+        <display_position>1B,2B,3B</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/mkWQp2SYfa_Vr8a8lSslAQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03162018/10344.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/mkWQp2SYfa_Vr8a8lSslAQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03162018/10344.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>1B</position>
+          <position>2B</position>
+          <position>3B</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553303940</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>3/13</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.231</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.077</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>84.6</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9771</player_key>
+        <player_id>9771</player_id>
+        <name>
+          <full>Chris Taylor</full>
+          <first>Chris</first>
+          <last>Taylor</last>
+          <ascii_first>Chris</ascii_first>
+          <ascii_last>Taylor</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9771</editorial_player_key>
+        <editorial_team_key>mlb.t.19</editorial_team_key>
+        <editorial_team_full_name>Los Angeles Dodgers</editorial_team_full_name>
+        <editorial_team_abbr>LAD</editorial_team_abbr>
+        <uniform_number>3</uniform_number>
+        <display_position>2B,SS,OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/NtrBl462SWvatrx8e69Qaw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03312019/9771.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/NtrBl462SWvatrx8e69Qaw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03312019/9771.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>2B</position>
+          <position>SS</position>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553377920</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>0/9</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.000</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>77.8</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10235</player_key>
+        <player_id>10235</player_id>
+        <name>
+          <full>Rafael Devers</full>
+          <first>Rafael</first>
+          <last>Devers</last>
+          <ascii_first>Rafael</ascii_first>
+          <ascii_last>Devers</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10235</editorial_player_key>
+        <editorial_team_key>mlb.t.2</editorial_team_key>
+        <editorial_team_full_name>Boston Red Sox</editorial_team_full_name>
+        <editorial_team_abbr>Bos</editorial_team_abbr>
+        <uniform_number>11</uniform_number>
+        <display_position>3B</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/25TBldoQoKaIo7ay_CS7iA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03072018/10235.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/25TBldoQoKaIo7ay_CS7iA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03072018/10235.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>3B</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1554008280</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>6/17</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.353</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.118</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>82.4</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9897</player_key>
+        <player_id>9897</player_id>
+        <name>
+          <full>Tim Anderson</full>
+          <first>Tim</first>
+          <last>Anderson</last>
+          <ascii_first>Tim</ascii_first>
+          <ascii_last>Anderson</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9897</editorial_player_key>
+        <editorial_team_key>mlb.t.4</editorial_team_key>
+        <editorial_team_full_name>Chicago White Sox</editorial_team_full_name>
+        <editorial_team_abbr>CWS</editorial_team_abbr>
+        <uniform_number>7</uniform_number>
+        <display_position>SS</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/L.j3ECJjtDqPF5VTwINo1A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04032018/9897.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/L.j3ECJjtDqPF5VTwINo1A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04032018/9897.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>SS</position>
+          <position>Util</position>
+        </eligible_positions>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>4/12</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.333</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.083</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>91.7</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9320</player_key>
+        <player_id>9320</player_id>
+        <name>
+          <full>Christian Yelich</full>
+          <first>Christian</first>
+          <last>Yelich</last>
+          <ascii_first>Christian</ascii_first>
+          <ascii_last>Yelich</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9320</editorial_player_key>
+        <editorial_team_key>mlb.t.8</editorial_team_key>
+        <editorial_team_full_name>Milwaukee Brewers</editorial_team_full_name>
+        <editorial_team_abbr>Mil</editorial_team_abbr>
+        <uniform_number>22</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/R_nK_1tauFS2U5Z2W7mYeQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03082018/9320.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/R_nK_1tauFS2U5Z2W7mYeQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03082018/9320.png</image_url>
+        <is_undroppable>1</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <has_recent_player_notes>1</has_recent_player_notes>
+        <player_notes_last_timestamp>1554070740</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>6/12</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>6</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>8</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.500</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>1.083</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>91.7</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.7977</player_key>
+        <player_id>7977</player_id>
+        <name>
+          <full>Andrew McCutchen</full>
+          <first>Andrew</first>
+          <last>McCutchen</last>
+          <ascii_first>Andrew</ascii_first>
+          <ascii_last>McCutchen</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.7977</editorial_player_key>
+        <editorial_team_key>mlb.t.22</editorial_team_key>
+        <editorial_team_full_name>Philadelphia Phillies</editorial_team_full_name>
+        <editorial_team_abbr>Phi</editorial_team_abbr>
+        <uniform_number>22</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/PGJ2ut3Vr1xH06_8RvvSnw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/7977.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/PGJ2ut3Vr1xH06_8RvvSnw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/7977.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <has_recent_player_notes>1</has_recent_player_notes>
+        <player_notes_last_timestamp>1554085560</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>2/11</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.182</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.545</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>63.6</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9338</player_key>
+        <player_id>9338</player_id>
+        <name>
+          <full>Jackie Bradley Jr.</full>
+          <first>Jackie</first>
+          <last>Bradley Jr.</last>
+          <ascii_first>Jackie</ascii_first>
+          <ascii_last>Bradley Jr.</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9338</editorial_player_key>
+        <editorial_team_key>mlb.t.2</editorial_team_key>
+        <editorial_team_full_name>Boston Red Sox</editorial_team_full_name>
+        <editorial_team_abbr>Bos</editorial_team_abbr>
+        <uniform_number>19</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/72IvRrmSEKUn2jmUuaX53g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03142018/9338.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/72IvRrmSEKUn2jmUuaX53g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03142018/9338.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553370600</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>4/17</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.235</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.059</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>70.6</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.8868</player_key>
+        <player_id>8868</player_id>
+        <name>
+          <full>Anthony Rizzo</full>
+          <first>Anthony</first>
+          <last>Rizzo</last>
+          <ascii_first>Anthony</ascii_first>
+          <ascii_last>Rizzo</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.8868</editorial_player_key>
+        <editorial_team_key>mlb.t.16</editorial_team_key>
+        <editorial_team_full_name>Chicago Cubs</editorial_team_full_name>
+        <editorial_team_abbr>ChC</editorial_team_abbr>
+        <uniform_number>44</uniform_number>
+        <display_position>1B</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/Ft5Lg8UtnTpx1_SrwWdoyw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03192018/8868.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/Ft5Lg8UtnTpx1_SrwWdoyw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03192018/8868.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>1B</position>
+          <position>Util</position>
+        </eligible_positions>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>3/11</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>3</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>3</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.273</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.273</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>90.9</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9385</player_key>
+        <player_id>9385</player_id>
+        <name>
+          <full>Marcell Ozuna</full>
+          <first>Marcell</first>
+          <last>Ozuna</last>
+          <ascii_first>Marcell</ascii_first>
+          <ascii_last>Ozuna</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9385</editorial_player_key>
+        <editorial_team_key>mlb.t.24</editorial_team_key>
+        <editorial_team_full_name>St. Louis Cardinals</editorial_team_full_name>
+        <editorial_team_abbr>StL</editorial_team_abbr>
+        <uniform_number>23</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/iKK3PMI4825XllG_KcEe1g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03092018/9385.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/iKK3PMI4825XllG_KcEe1g--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03092018/9385.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>5/17</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>3</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.294</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.059</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>70.6</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9104</player_key>
+        <player_id>9104</player_id>
+        <name>
+          <full>Jonathan Schoop</full>
+          <first>Jonathan</first>
+          <last>Schoop</last>
+          <ascii_first>Jonathan</ascii_first>
+          <ascii_last>Schoop</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9104</editorial_player_key>
+        <editorial_team_key>mlb.t.9</editorial_team_key>
+        <editorial_team_full_name>Minnesota Twins</editorial_team_full_name>
+        <editorial_team_abbr>Min</editorial_team_abbr>
+        <uniform_number>16</uniform_number>
+        <display_position>2B,SS</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/PDva63V8oejaLgLVOaOghw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9104.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/PDva63V8oejaLgLVOaOghw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9104.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>2B</position>
+          <position>SS</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553390280</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>2/9</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.222</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.111</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>66.7</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10626</player_key>
+        <player_id>10626</player_id>
+        <name>
+          <full>Juan Soto</full>
+          <first>Juan</first>
+          <last>Soto</last>
+          <ascii_first>Juan</ascii_first>
+          <ascii_last>Soto</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10626</editorial_player_key>
+        <editorial_team_key>mlb.t.20</editorial_team_key>
+        <editorial_team_full_name>Washington Nationals</editorial_team_full_name>
+        <editorial_team_abbr>Was</editorial_team_abbr>
+        <uniform_number>22</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/iu4prpsZprawaCM2la52_A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/09182018/10626.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/iu4prpsZprawaCM2la52_A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/09182018/10626.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553982480</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>3/12</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.250</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.083</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>41.7</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9565</player_key>
+        <player_id>9565</player_id>
+        <name>
+          <full>David Dahl</full>
+          <first>David</first>
+          <last>Dahl</last>
+          <ascii_first>David</ascii_first>
+          <ascii_last>Dahl</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9565</editorial_player_key>
+        <editorial_team_key>mlb.t.27</editorial_team_key>
+        <editorial_team_full_name>Colorado Rockies</editorial_team_full_name>
+        <editorial_team_abbr>Col</editorial_team_abbr>
+        <uniform_number>26</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/QLdGBtc9IQuz6OevtaRD3w--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03212018/9565.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/QLdGBtc9IQuz6OevtaRD3w--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03212018/9565.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553995320</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>6/14</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>3</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.429</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.286</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>64.3</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.11016</player_key>
+        <player_id>11016</player_id>
+        <name>
+          <full>Franmil Reyes</full>
+          <first>Franmil</first>
+          <last>Reyes</last>
+          <ascii_first>Franmil</ascii_first>
+          <ascii_last>Reyes</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.11016</editorial_player_key>
+        <editorial_team_key>mlb.t.25</editorial_team_key>
+        <editorial_team_full_name>San Diego Padres</editorial_team_full_name>
+        <editorial_team_abbr>SD</editorial_team_abbr>
+        <uniform_number>32</uniform_number>
+        <display_position>OF</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/QatRpPMpZCWyiZOGtb82SA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/11016.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/QatRpPMpZCWyiZOGtb82SA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/11016.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>OF</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553386320</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>1/10</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.100</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.100</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>70.0</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.7914</player_key>
+        <player_id>7914</player_id>
+        <name>
+          <full>Evan Longoria</full>
+          <first>Evan</first>
+          <last>Longoria</last>
+          <ascii_first>Evan</ascii_first>
+          <ascii_last>Longoria</ascii_last>
+        </name>
+        <status>DTD</status>
+        <status_full>Day-to-Day</status_full>
+        <editorial_player_key>mlb.p.7914</editorial_player_key>
+        <editorial_team_key>mlb.t.26</editorial_team_key>
+        <editorial_team_full_name>San Francisco Giants</editorial_team_full_name>
+        <editorial_team_abbr>SF</editorial_team_abbr>
+        <uniform_number>10</uniform_number>
+        <display_position>3B</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/AwkX5G9Z4CYywG9QzcKAVQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03082018/7914.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/AwkX5G9Z4CYywG9QzcKAVQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03082018/7914.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>B</position_type>
+        <eligible_positions>
+          <position>3B</position>
+          <position>Util</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <has_recent_player_notes>1</has_recent_player_notes>
+        <player_notes_last_timestamp>1554052200</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>60</stat_id>
+              <value>4/11</value>
+            </stat>
+            <stat>
+              <stat_id>7</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>12</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>13</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>16</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>3</stat_id>
+              <value>.364</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1035</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1008</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1013</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1002</stat_id>
+              <value>.273</value>
+            </stat>
+            <stat>
+              <stat_id>1001</stat_id>
+              <value>90.9</value>
+            </stat>
+            <stat>
+              <stat_id>1014</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1015</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1011</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1005</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1006</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1009</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1007</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1010</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1016</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1004</stat_id>
+              <value>.00</value>
+            </stat>
+            <stat>
+              <stat_id>1039</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1012</stat_id>
+              <value>.000</value>
+            </stat>
+            <stat>
+              <stat_id>1003</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1017</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9597</player_key>
+        <player_id>9597</player_id>
+        <name>
+          <full>Noah Syndergaard</full>
+          <first>Noah</first>
+          <last>Syndergaard</last>
+          <ascii_first>Noah</ascii_first>
+          <ascii_last>Syndergaard</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9597</editorial_player_key>
+        <editorial_team_key>mlb.t.21</editorial_team_key>
+        <editorial_team_full_name>New York Mets</editorial_team_full_name>
+        <editorial_team_abbr>NYM</editorial_team_abbr>
+        <uniform_number>34</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/bvBOv.WrvozY6fzm9_8Uqg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9597.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/bvBOv.WrvozY6fzm9_8Uqg--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9597.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553982840</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>6.0</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>7</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>6.00</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>1.17</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>3.40</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>64.7</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>23.5</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.375</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>25.0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>11</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>2.8</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>17.20</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>135</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>103.0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>6.0</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.304</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.320</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.565</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.1</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10683</player_key>
+        <player_id>10683</player_id>
+        <name>
+          <full>Nick Pivetta</full>
+          <first>Nick</first>
+          <last>Pivetta</last>
+          <ascii_first>Nick</ascii_first>
+          <ascii_last>Pivetta</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10683</editorial_player_key>
+        <editorial_team_key>mlb.t.22</editorial_team_key>
+        <editorial_team_full_name>Philadelphia Phillies</editorial_team_full_name>
+        <editorial_team_abbr>Phi</editorial_team_abbr>
+        <uniform_number>43</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/iKvayMEYXqtxiwsmt3ZvjQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03292018/10683.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/iKvayMEYXqtxiwsmt3ZvjQ--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03292018/10683.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553988900</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>4.2</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>7.71</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>1.93</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>4.78</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>29.4</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>17.6</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.438</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>33.3</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>5</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>3</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>1.7</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>16.30</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>166</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>76.0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>7.7</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.381</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.409</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.667</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.8641</player_key>
+        <player_id>8641</player_id>
+        <name>
+          <full>Sean Doolittle</full>
+          <first>Sean</first>
+          <last>Doolittle</last>
+          <ascii_first>Sean</ascii_first>
+          <ascii_last>Doolittle</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.8641</editorial_player_key>
+        <editorial_team_key>mlb.t.20</editorial_team_key>
+        <editorial_team_full_name>Washington Nationals</editorial_team_full_name>
+        <editorial_team_abbr>Was</editorial_team_abbr>
+        <uniform_number>63</uniform_number>
+        <display_position>RP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/ZnRo0cp0uLOLIJdQczY1ww--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03092018/8641.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/ZnRo0cp0uLOLIJdQczY1ww--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03092018/8641.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>RP</position>
+          <position>P</position>
+        </eligible_positions>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>1.2</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>0.00</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>1.80</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>0.67</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>16.7</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>33.3</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.500</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>0.5</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>18.00</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>100.0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>5.4</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.375</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.375</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.375</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.1</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.9616</player_key>
+        <player_id>9616</player_id>
+        <name>
+          <full>Tyler Glasnow</full>
+          <first>Tyler</first>
+          <last>Glasnow</last>
+          <ascii_first>Tyler</ascii_first>
+          <ascii_last>Glasnow</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.9616</editorial_player_key>
+        <editorial_team_key>mlb.t.30</editorial_team_key>
+        <editorial_team_full_name>Tampa Bay Rays</editorial_team_full_name>
+        <editorial_team_abbr>TB</editorial_team_abbr>
+        <uniform_number>20</uniform_number>
+        <display_position>SP,RP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/YWbEhBLCfmNAQf4C5dtiig--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9616.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/YWbEhBLCfmNAQf4C5dtiig--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/9616.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>RP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553993460</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>5.0</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>1.80</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>1.40</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>4.67</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>73.3</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>13.3</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.357</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>50.0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>11</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>5.5</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>15.40</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>48</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>77.0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>2</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>3.6</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.316</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.350</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.474</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10592</player_key>
+        <player_id>10592</player_id>
+        <name>
+          <full>Jack Flaherty</full>
+          <first>Jack</first>
+          <last>Flaherty</last>
+          <ascii_first>Jack</ascii_first>
+          <ascii_last>Flaherty</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10592</editorial_player_key>
+        <editorial_team_key>mlb.t.24</editorial_team_key>
+        <editorial_team_full_name>St. Louis Cardinals</editorial_team_full_name>
+        <editorial_team_abbr>StL</editorial_team_abbr>
+        <uniform_number>22</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/F1.Ygdsr0l2Hbd5SdfpGwA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04042018/10592.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/F1.Ygdsr0l2Hbd5SdfpGwA--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/04042018/10592.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553920140</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>4.1</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>8.31</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>1.85</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>4.92</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>40.0</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>33.3</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.429</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>20.0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>6</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>5</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>1.2</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>20.50</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>183</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>89.0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>8.3</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.389</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.400</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.611</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.8175</player_key>
+        <player_id>8175</player_id>
+        <name>
+          <full>David Price</full>
+          <first>David</first>
+          <last>Price</last>
+          <ascii_first>David</ascii_first>
+          <ascii_last>Price</ascii_last>
+        </name>
+        <status>DTD</status>
+        <status_full>Day-to-Day</status_full>
+        <editorial_player_key>mlb.p.8175</editorial_player_key>
+        <editorial_team_key>mlb.t.2</editorial_team_key>
+        <editorial_team_full_name>Boston Red Sox</editorial_team_full_name>
+        <editorial_team_abbr>Bos</editorial_team_abbr>
+        <uniform_number>10</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/WOr.C4SaZj0D62Ek8Squ0A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03142018/8175.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/WOr.C4SaZj0D62Ek8Squ0A--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03142018/8175.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553636760</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>-</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.7578</player_key>
+        <player_id>7578</player_id>
+        <name>
+          <full>Rich Hill</full>
+          <first>Rich</first>
+          <last>Hill</last>
+          <ascii_first>Rich</ascii_first>
+          <ascii_last>Hill</ascii_last>
+        </name>
+        <status>DL10</status>
+        <status_full>10-Day Disabled List</status_full>
+        <on_disabled_list>1</on_disabled_list>
+        <editorial_player_key>mlb.p.7578</editorial_player_key>
+        <editorial_team_key>mlb.t.19</editorial_team_key>
+        <editorial_team_full_name>Los Angeles Dodgers</editorial_team_full_name>
+        <editorial_team_abbr>LAD</editorial_team_abbr>
+        <uniform_number>44</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/JiB4fWazDqGjhbd56EPfYw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03312019/7578.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/JiB4fWazDqGjhbd56EPfYw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03312019/7578.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+          <position>DL</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <player_notes_last_timestamp>1553987940</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>-</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>-</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+      <player>
+        <player_key>388.p.10575</player_key>
+        <player_id>10575</player_id>
+        <name>
+          <full>Chris Paddack</full>
+          <first>Chris</first>
+          <last>Paddack</last>
+          <ascii_first>Chris</ascii_first>
+          <ascii_last>Paddack</ascii_last>
+        </name>
+        <editorial_player_key>mlb.p.10575</editorial_player_key>
+        <editorial_team_key>mlb.t.25</editorial_team_key>
+        <editorial_team_full_name>San Diego Padres</editorial_team_full_name>
+        <editorial_team_abbr>SD</editorial_team_abbr>
+        <uniform_number>59</uniform_number>
+        <display_position>SP</display_position>
+        <headshot>
+          <url>https://s.yimg.com/iu/api/res/1.2/jJkLq8Jbepv7Fu1O_sl6Kw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/10575.1.png</url>
+          <size>small</size>
+        </headshot>
+        <image_url>https://s.yimg.com/iu/api/res/1.2/jJkLq8Jbepv7Fu1O_sl6Kw--~B/YXBwaWQ9c2hhcmVkO2NoPTIzMzY7Y3I9MTtjdz0xNzkwO2R4PTg1NztkeT0wO2ZpPXVsY3JvcDtoPTYwO3E9MTAwO3c9NDY-/https://s.yimg.com/xe/i/us/sp/v/mlb_cutout/players_l/03222019/10575.1.png</image_url>
+        <is_undroppable>0</is_undroppable>
+        <position_type>P</position_type>
+        <eligible_positions>
+          <position>SP</position>
+          <position>P</position>
+        </eligible_positions>
+        <has_player_notes>1</has_player_notes>
+        <has_recent_player_notes>1</has_recent_player_notes>
+        <player_notes_last_timestamp>1554073200</player_notes_last_timestamp>
+        <player_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>50</stat_id>
+              <value>5.0</value>
+            </stat>
+            <stat>
+              <stat_id>28</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>32</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>42</stat_id>
+              <value>7</value>
+            </stat>
+            <stat>
+              <stat_id>26</stat_id>
+              <value>1.80</value>
+            </stat>
+            <stat>
+              <stat_id>27</stat_id>
+              <value>0.60</value>
+            </stat>
+          </stats>
+        </player_stats>
+        <player_advanced_stats>
+          <coverage_type>season</coverage_type>
+          <season>2019</season>
+          <stats>
+            <stat>
+              <stat_id>1032</stat_id>
+              <value>0.87</value>
+            </stat>
+            <stat>
+              <stat_id>1021</stat_id>
+              <value>44.4</value>
+            </stat>
+            <stat>
+              <stat_id>1022</stat_id>
+              <value>55.6</value>
+            </stat>
+            <stat>
+              <stat_id>1031</stat_id>
+              <value>.222</value>
+            </stat>
+            <stat>
+              <stat_id>1036</stat_id>
+              <value>0.0</value>
+            </stat>
+            <stat>
+              <stat_id>1037</stat_id>
+              <value>4</value>
+            </stat>
+            <stat>
+              <stat_id>1038</stat_id>
+              <value>5</value>
+            </stat>
+            <stat>
+              <stat_id>1020</stat_id>
+              <value>0.8</value>
+            </stat>
+            <stat>
+              <stat_id>1018</stat_id>
+              <value>15.80</value>
+            </stat>
+            <stat>
+              <stat_id>1034</stat_id>
+              <value>39</value>
+            </stat>
+            <stat>
+              <stat_id>1019</stat_id>
+              <value>79.0</value>
+            </stat>
+            <stat>
+              <stat_id>1023</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1024</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1025</stat_id>
+              <value>0</value>
+            </stat>
+            <stat>
+              <stat_id>1026</stat_id>
+              <value>1</value>
+            </stat>
+            <stat>
+              <stat_id>1027</stat_id>
+              <value>1.8</value>
+            </stat>
+            <stat>
+              <stat_id>1028</stat_id>
+              <value>.125</value>
+            </stat>
+            <stat>
+              <stat_id>1029</stat_id>
+              <value>.176</value>
+            </stat>
+            <stat>
+              <stat_id>1030</stat_id>
+              <value>.188</value>
+            </stat>
+            <stat>
+              <stat_id>1033</stat_id>
+              <value>0.3</value>
+            </stat>
+          </stats>
+        </player_advanced_stats>
+      </player>
+    </players>"
   end
 end

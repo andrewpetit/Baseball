@@ -10,8 +10,7 @@ RSpec.describe FantasyBaseballRosterMember, type: :model do
     {
       'first_name' => first_name,
       'external_id' => external_id,
-      'eligible_positions' => eligible_positions,
-      'invalid' => junk
+      'eligible_positions' => eligible_positions
     }
   end
 

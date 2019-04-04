@@ -1,20 +1,18 @@
 require 'rails_helper'
-require 'xmlsimple'
 
 RSpec.describe Api::YahooTeam, type: :class do
   include_context 'yahoo_base_response_stubs'
-  include_context 'yahoo_team_response_stubs'
-  include_context 'yahoo_league_response_stubs'
   let(:yahoo_team) { described_class.new(junk) }
 
   before do
-    allow(yahoo_team).to receive(:parse_yahoo_response).with(described_class::MLB_ID_URL)
-                                                       .and_return(valid_mlb_id_response)
-    allow(yahoo_team).to receive(:parse_yahoo_response)
+    allow(yahoo_team).to receive(:raw_response)
+      .with(described_class::MLB_ID_URL)
+      .and_return(valid_mlb_id_response)
+    allow(yahoo_team).to receive(:raw_response)
       .with(described_class::AVAILABLE_TEAMS_URL)
-      .and_return(teams_response)
-    allow(yahoo_team).to receive(:parse_yahoo_response)
-      .with(described_class::AVAILABLE_LEAGUES_URL + '370.l.85254,370.l.85255')
+      .and_return(valid_teams_response)
+    allow(yahoo_team).to receive(:raw_response)
+      .with(described_class::AVAILABLE_LEAGUES_URL + '268.l.78659,268.l.57939')
       .and_return(leagues_response)
   end
 
@@ -36,34 +34,34 @@ RSpec.describe Api::YahooTeam, type: :class do
 
     it 'calls parse response for mlb_id' do
       yahoo_team.user_teams
-      expect(yahoo_team).to have_received(:parse_yahoo_response).with(described_class::MLB_ID_URL)
+      expect(yahoo_team).to have_received(:raw_response).with(described_class::MLB_ID_URL)
     end
 
     it 'calls parse response for teams' do
       yahoo_team.user_teams
-      expect(yahoo_team).to have_received(:parse_yahoo_response)
+      expect(yahoo_team).to have_received(:raw_response)
         .with(described_class::AVAILABLE_TEAMS_URL)
     end
 
     it 'calls parse response for leagues' do
       yahoo_team.user_teams
-      expect(yahoo_team).to have_received(:parse_yahoo_response)
-        .with(described_class::AVAILABLE_LEAGUES_URL + '370.l.85254,370.l.85255')
+      expect(yahoo_team).to have_received(:raw_response)
+        .with(described_class::AVAILABLE_LEAGUES_URL + '268.l.78659,268.l.57939')
     end
 
     describe 'invalid league key' do
       let(:team2) { unstarted_team }
 
       before do
-        allow(yahoo_team).to receive(:parse_yahoo_response)
-          .with(described_class::AVAILABLE_LEAGUES_URL + '370.l.85254')
+        allow(yahoo_team).to receive(:raw_response)
+          .with(described_class::AVAILABLE_LEAGUES_URL + '268.l.78659')
           .and_return(leagues_response)
       end
 
       it 'exludes invalid leagues' do
         yahoo_team.user_teams
-        expect(yahoo_team).to have_received(:parse_yahoo_response)
-          .with(described_class::AVAILABLE_LEAGUES_URL + '370.l.85254')
+        expect(yahoo_team).to have_received(:raw_response)
+          .with(described_class::AVAILABLE_LEAGUES_URL + '268.l.78659')
       end
     end
 

@@ -1,5 +1,6 @@
 require 'rails_helper'
 
+# rubocop:disable Metrics/BlockLength
 RSpec.describe RosterSorter, type: :class do
   let(:roster_sorter) { described_class.new(fantasy_baseball_team) }
   let(:fantasy_baseball_team) { build :fantasy_baseball_team, roster_sort: roster_sort }
@@ -43,7 +44,8 @@ RSpec.describe RosterSorter, type: :class do
     build :fantasy_baseball_roster_member,
           position_type: 'B',
           selected_position: 'C',
-          player_ranks: [{ 'rank_type' => ['OR'], 'rank_value' => ['1'] }, { 'rank_type' => ['S'], 'rank_value' => ['1'], 'rank_season' => ['2017'] }],
+          original_rank: 1,
+          season_rank: 1,
           player_stats: { '7' => '45',
                           '8' => '113',
                           '12' => '6',
@@ -57,7 +59,8 @@ RSpec.describe RosterSorter, type: :class do
     build :fantasy_baseball_roster_member,
           position_type: 'B',
           selected_position: 'SS',
-          player_ranks: [{ 'rank_type' => ['OR'], 'rank_value' => ['2'] }, { 'rank_type' => ['S'], 'rank_value' => ['2'], 'rank_season' => ['2017'] }],
+          original_rank: 2,
+          season_rank: 2,
           player_stats: { '7' => '45',
                           '8' => '113',
                           '12' => '6',
@@ -71,7 +74,8 @@ RSpec.describe RosterSorter, type: :class do
     build :fantasy_baseball_roster_member,
           position_type: 'P',
           selected_position: 'SP',
-          player_ranks: [{ 'rank_type' => ['OR'], 'rank_value' => ['3'] }, { 'rank_type' => ['S'], 'rank_value' => ['3'], 'rank_season' => ['2017'] }],
+          original_rank: 3,
+          season_rank: 3,
           player_stats: { '7' => '45',
                           '8' => '113',
                           '12' => '6',
@@ -85,7 +89,8 @@ RSpec.describe RosterSorter, type: :class do
     build :fantasy_baseball_roster_member,
           position_type: 'P',
           selected_position: 'P',
-          player_ranks: [{ 'rank_type' => ['OR'], 'rank_value' => ['4'] }, { 'rank_type' => ['S'], 'rank_value' => ['4'], 'rank_season' => ['2017'] }],
+          original_rank: 4,
+          season_rank: 4,
           player_stats: { '7' => '45',
                           '8' => '113',
                           '12' => '6',
@@ -196,3 +201,4 @@ RSpec.describe RosterSorter, type: :class do
     end
   end
 end
+# rubocop:enable Metrics/BlockLength

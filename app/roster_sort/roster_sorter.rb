@@ -66,16 +66,16 @@ class RosterSorter
 
   def sort_hitters
     available_hitter_positions.each do |pos|
-      if hitters.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.nil? }.present?
-        hitters.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.nil? }.updated_position = pos
+      if hitters.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.empty? }.present?
+        hitters.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.empty? }.updated_position = pos
       end
     end
   end
 
   def sort_pitchers
     available_pitcher_positions.each do |pos|
-      if pitchers.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.nil? }.present?
-        pitchers.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.nil? }.updated_position = pos
+      if pitchers.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.empty? }.present?
+        pitchers.find { |p| (p.eligible_positions.include?(pos) || pos == 'BN') && p.updated_position.empty? }.updated_position = pos
       end
     end
   end
@@ -91,7 +91,8 @@ class RosterSorter
   def merge_ranks
     ranks = @fantasy_baseball_team.current_ranks
     @fantasy_baseball_roster.each do |player|
-      player.player_ranks = ranks.find { |p| p.editorial_player_key == player.editorial_player_key }.player_ranks
+      player.original_rank = ranks.find { |p| p.editorial_player_key == player.editorial_player_key }.original_rank
+      player.season_rank = ranks.find { |p| p.editorial_player_key == player.editorial_player_key }.season_rank
     end
   end
 

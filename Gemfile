@@ -5,8 +5,6 @@ git_source(:github) do |repo_name|
   "https://github.com/#{repo_name}.git"
 end
 
-gem 'xml-simple', '~> 1.1', '>= 1.1.5'
-
 gem 'devise'
 gem 'nokogiri'
 gem 'oauth2'

@@ -17,5 +17,6 @@ FactoryGirl.define do
     editorial_team_full_name { 'Colorado Rockies' }
     editorial_team_abbr { 'Col' }
     season_stat_rank { 0 }
+    updated_position { '' }
   end
 end

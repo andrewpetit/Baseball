@@ -13,10 +13,7 @@ module Api
     end
 
     def update_roster update_type
-      return if fantasy_baseball_roster.empty?
-
-      update_url = "https://fantasysports.yahooapis.com/fantasy/v2/team/#{@fantasy_baseball_team.league_key}.t.#{@fantasy_baseball_team.team_id}/roster"
-      post_and_parse_yahoo_response(update_url, update_xml)
+      return if fantasy_baseball_roster.empty? || !post_and_parse_response(update_url, update_xml)
 
       roster = FantasyBaseballRoster.create(roster_sort: @fantasy_baseball_team.roster_sort, update_type: update_type)
       roster.fantasy_baseball_roster_member = @fantasy_baseball_roster
@@ -24,6 +21,10 @@ module Api
     end
 
     private
+
+    def update_url
+      @update_url ||= "#{BASE_URL}/team/#{@fantasy_baseball_team.league_key}.t.#{@fantasy_baseball_team.team_id}/roster"
+    end
 
     def fantasy_baseball_roster
       @fantasy_baseball_roster ||= @fantasy_baseball_team.sorted_roster

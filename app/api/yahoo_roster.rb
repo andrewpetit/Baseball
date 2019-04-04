@@ -8,37 +8,16 @@ module Api
     end
 
     def current_roster_members
-      roster_url = "https://fantasysports.yahooapis.com/fantasy/v2/team/#{@league_key}.t.#{@team_id}/roster/players"
-      data = parse_yahoo_response(roster_url)
-      return [] if team_missing? data
+      data = parse_response(roster_url).xpath('//team/roster/players/player')
+      return [] if data.empty?
 
-      data = data['team'].first['roster'].first['players'].first['player']
-      data = remove_brackets data
-      map_fields data
-      data.map { |r| FantasyBaseballRosterMember.new(r) }
+      roster_members data
     end
 
     private
 
-    def team_missing? data
-      data.empty? ||
-        data['team'].first['roster'].empty? ||
-        data['team'].first['roster'].first['players'].first.empty?
+    def roster_url
+      @roster_url ||= "#{BASE_URL}/team/#{@league_key}.t.#{@team_id}/roster/players"
     end
-
-    # rubocop:disable Metrics/AbcSize
-    def map_fields data
-      data.each do |r|
-        r['first_name'] = r['name']['first'].first
-        r['last_name'] = r['name']['last'].first
-        r['external_id'] = r['player_id']
-        r['eligible_positions'] = r['eligible_positions']['position'].join(',')
-        r['selected_position'] = r['selected_position']['position'].first
-        r['headshot_url'] = r['headshot']['url'].first
-        r['probable_starter'] = r['starting_status']['is_starting'].first == '1' if r['starting_status']
-      end
-    end
-    # rubocop:enable Metrics/AbcSize
-
   end
 end

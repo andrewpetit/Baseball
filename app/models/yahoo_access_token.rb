@@ -33,6 +33,10 @@ class YahooAccessToken < ApplicationRecord
     token
   end
 
+  def get url
+    token.get url
+  end
+
   private
 
   def parsed_access_token

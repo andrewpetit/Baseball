@@ -5,8 +5,8 @@ class YahooAccessToken < ApplicationRecord
   USER_AUTH_URL = 'https://api.login.yahoo.com/oauth2/request_auth'.freeze
   AUTHORIZE_URL = '/oauth2/request_auth'.freeze
   TOKEN_URL = '/oauth2/get_token'.freeze
-  CLIENT_KEY = ENV['YAHOO_CLIENT_KEY'].freeze
-  CLIENT_SECRET = ENV['YAHOO_CLIENT_SECRET'].freeze
+  CLIENT_KEY = ENV['YAHOO_CLIENT_KEY']
+  CLIENT_SECRET = ENV['YAHOO_CLIENT_SECRET']
 
   def access_token_set code_value
     new_token = YahooAccessToken.oauth_client.auth_code.get_token(code_value, redirect_uri: 'oob')

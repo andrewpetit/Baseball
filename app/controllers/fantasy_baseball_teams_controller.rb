@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FantasyBaseballTeamsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_fantasy_baseball_team, only: [:show, :edit, :update, :update_roster, :destroy]

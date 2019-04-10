@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'yahoo_base_response_stubs' do
   let(:current_mlb_id) { '268' }
   let(:league_ids) { ['370.l.85254', '370.l.85255'] }

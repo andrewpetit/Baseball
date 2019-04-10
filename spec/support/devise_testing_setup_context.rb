@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 shared_context 'devise_testing_setup' do
   # render_views
 

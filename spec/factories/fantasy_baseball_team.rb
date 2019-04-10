@@ -1,4 +1,6 @@
-FactoryGirl.define do
+# frozen_string_literal: true
+
+FactoryBot.define do
   factory :fantasy_baseball_team do
     # trait :valid do
     league_key { '123.456.789' }

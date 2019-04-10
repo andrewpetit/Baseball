@@ -1,11 +1,13 @@
+# frozen_string_literal: true
+
 module Api
   class YahooBase
     # find more games
     # https://fantasysports.yahooapis.com/fantasy/v2/games;is_available=1
-    BASE_URL = 'https://fantasysports.yahooapis.com/fantasy/v2'.freeze
-    MLB_ID_URL = "#{BASE_URL}/game/mlb".freeze
-    NFL_PICKEM_ID_URL = "#{BASE_URL}/game/nflp".freeze
-    AVAILABLE_TEAMS_URL = "#{BASE_URL}/users;use_login=1/games;is_available=1/teams".freeze
+    BASE_URL = 'https://fantasysports.yahooapis.com/fantasy/v2'
+    MLB_ID_URL = "#{BASE_URL}/game/mlb"
+    NFL_PICKEM_ID_URL = "#{BASE_URL}/game/nflp"
+    AVAILABLE_TEAMS_URL = "#{BASE_URL}/users;use_login=1/games;is_available=1/teams"
 
     def initialize yahoo_access_token
       @yahoo_access_token = yahoo_access_token

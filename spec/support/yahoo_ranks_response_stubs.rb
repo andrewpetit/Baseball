@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'yahoo_ranks_response_stubs' do
   let(:ranks_response) do
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>

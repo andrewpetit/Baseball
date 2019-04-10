@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ApplicationHelper
   def pretty_datetime datetime
     return if datetime.blank?

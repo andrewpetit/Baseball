@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 RSpec.shared_context 'seat_geek_response_stubs' do
   let(:response) { instance_double(Net::HTTPOK) }
 

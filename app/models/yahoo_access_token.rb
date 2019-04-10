@@ -1,12 +1,14 @@
+# frozen_string_literal: true
+
 class YahooAccessToken < ApplicationRecord
   require 'oauth2'
   belongs_to :user
 
-  USER_AUTH_URL = 'https://api.login.yahoo.com/oauth2/request_auth'.freeze
-  AUTHORIZE_URL = '/oauth2/request_auth'.freeze
-  TOKEN_URL = '/oauth2/get_token'.freeze
-  CLIENT_KEY = ENV['YAHOO_CLIENT_KEY']
-  CLIENT_SECRET = ENV['YAHOO_CLIENT_SECRET']
+  USER_AUTH_URL = 'https://api.login.yahoo.com/oauth2/request_auth'
+  AUTHORIZE_URL = '/oauth2/request_auth'
+  TOKEN_URL = '/oauth2/get_token'
+  CLIENT_KEY = Rails.application.secrets.yahoo_client_key
+  CLIENT_SECRET = Rails.application.secrets.yahoo_client_secret
 
   def access_token_set code_value
     new_token = YahooAccessToken.oauth_client.auth_code.get_token(code_value, redirect_uri: 'oob')

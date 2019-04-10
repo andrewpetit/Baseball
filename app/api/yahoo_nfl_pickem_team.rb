@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 module Api
   class YahooNflPickemTeam < YahooBase
-    AVAILABLE_LEAGUES_URL = "#{BASE_URL}/game/nflp/leagues;league_keys=".freeze
+    AVAILABLE_LEAGUES_URL = "#{BASE_URL}/game/nflp/leagues;league_keys="
 
     def user_teams
       return [] if available_nfl_pickem_teams.empty? || available_leagues.empty?

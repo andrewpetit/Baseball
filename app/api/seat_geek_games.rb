@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 module Api
   class SeatGeekGames
-    CLIENT_ID = ENV['SEAT_GEEK_CLIENT_ID']
+    CLIENT_ID = Rails.application.secrets.seat_geek_client_id
     TEAM_IDS = Array(1..30).freeze
-    BASE_URL = 'https://api.seatgeek.com/2/events?per_page=50&performers.id='.freeze
+    BASE_URL = 'https://api.seatgeek.com/2/events?per_page=50&performers.id='
 
     def todays_games
       get_games(today_start, today_end)

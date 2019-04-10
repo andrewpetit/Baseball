@@ -1,5 +1,7 @@
+# frozen_string_literal: true
+
 # rubocop:disable LineLength
-FactoryGirl.define do
+FactoryBot.define do
   factory :yahoo_access_token do
     access_token do
       '{"token_type"=>"bearer",

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :baseball do
   desc 'Updates lineups for auto_update teams'
 

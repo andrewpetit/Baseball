@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FantasyBaseballRosterMember < ApplicationRecord
   belongs_to :fantasy_baseball_roster
 

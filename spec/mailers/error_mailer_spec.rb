@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe ErrorMailer, type: :mailer do
@@ -7,7 +9,7 @@ RSpec.describe ErrorMailer, type: :mailer do
 
   let(:params) do
     {
-      to: ENV['EMAIL'],
+      to: Rails.application.secrets.email,
       subject: subject_text,
       template_path: 'error_mailer',
       template_name: 'error_email'

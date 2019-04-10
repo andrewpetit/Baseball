@@ -1,4 +1,6 @@
-FactoryGirl.define do
+# frozen_string_literal: true
+
+FactoryBot.define do
   factory :fantasy_baseball_roster_member do
     # fantasy_baseball_roster nil
     headshot_url { 'http://test.jpg' }

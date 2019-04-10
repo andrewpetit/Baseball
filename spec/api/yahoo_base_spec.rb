@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 RSpec.describe Api::YahooBase, type: :class do
   include_context 'yahoo_base_response_stubs'

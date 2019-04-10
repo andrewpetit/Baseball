@@ -13,11 +13,8 @@ module Baseball
     config.load_defaults 5.1
     config.autoload_paths += %W(#{config.root}/app)
 
-    config.secret_key_base = ENV['SECRET_KEY_BASE'] if Rails.env.production? 
-
-    config_files = [] 
-    config_files << ['secrets.yml'] unless Rails.env.production?
-
+    config_files = []
+    config_files << ['development.yml'] if Rails.env.development?
     config_files.each do |file_name|
       file_path = File.join(Rails.root, 'config', file_name)
       config_keys = HashWithIndifferentAccess.new(YAML::load(IO.read(file_path)))[Rails.env]

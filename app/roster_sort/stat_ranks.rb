@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class StatRanks
   STAT_SORT = { '7' => 'DESC',
                 '8' => 'DESC',

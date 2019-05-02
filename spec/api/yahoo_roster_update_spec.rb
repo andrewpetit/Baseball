@@ -11,12 +11,13 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
     "<?xml version=\"1.0\" encoding=\"UTF-8\"?>
 <fantasy_content xml:lang=\"en-US\" yahoo:uri=\"http://fantasysports.yahooapis.com/fantasy/v2/team/388.l.161732.t.11/roster\" xmlns:yahoo=\"http://www.yahooapis.com/v1/base.rng\" xmlns=\"http://fantasysports.yahooapis.com/fantasy/v2/base.rng\">
   <confirmation>
-    <status>success</status>
+    <status>#{status}</status>
   </confirmation>
 </fantasy_content>
 <!-- fanos1520.sports.bf1.yahoo.com Thu Apr  4 15:34:48 UTC 2019 -->"
   end
   # rubocop:enable Metrics/LineLength
+  let(:status) { 'success' }
 
   let(:roster_update) { described_class.new(fantasy_baseball_team, junk) }
   let(:roster_sort) { create :roster_sort }
@@ -64,6 +65,50 @@ RSpec.describe Api::YahooRosterUpdate, type: :class do
 
       it 'does not process' do
         expect(roster_update).not_to have_received(:raw_put)
+      end
+    end
+  end
+
+  context 'with invalid response' do
+    before do
+      allow(roster_update).to receive(:raw_put).and_return(post_response_xml)
+    end
+
+    let(:status) { 'fail' }
+
+    it 'returns false' do
+      expect(roster_update.update_roster(update_type)).to be_falsey
+    end
+  end
+
+  describe 'response error' do
+    before do
+      allow(roster_update).to receive(:raw_put).and_return(post_response_xml)
+    end
+
+    let(:post_response_xml) { '' }
+
+    it 'throws error' do
+      expect { roster_update.update_roster(update_type) }.to raise_error(StandardError)
+    end
+
+    describe 'when prod' do
+      let(:error_mailer) { instance_double('ErrorMailer') }
+      let(:mailer) { instance_double('Mailer', deliver!: true) }
+
+      before do
+        Rails.stub(env: 'production')
+        allow(ErrorMailer).to receive(:new).and_return(error_mailer)
+        allow(error_mailer).to receive(:error_email).and_return(mailer)
+      end
+
+      it 'records roster update error' do
+        roster_update.update_roster(update_type)
+        expect(error_mailer).to have_received(:error_email)
+      end
+
+      it 'returns false on roster update error' do
+        expect(roster_update.update_roster(update_type)).to be_falsey
       end
     end
   end

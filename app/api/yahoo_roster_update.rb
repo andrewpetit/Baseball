@@ -15,7 +15,7 @@ module Api
     end
 
     def update_roster update_type
-      return if fantasy_baseball_roster.empty? || !post_and_parse_response(update_url, update_xml)
+      return false if fantasy_baseball_roster.empty? || !post_and_parse_response(update_url, update_xml)
 
       roster = FantasyBaseballRoster.create(roster_sort: @fantasy_baseball_team.roster_sort, update_type: update_type)
       roster.fantasy_baseball_roster_member = @fantasy_baseball_roster

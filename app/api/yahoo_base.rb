@@ -52,10 +52,6 @@ module Api
     end
     # rubocop:enable Metrics/AbcSize
 
-    def remove_brackets data
-      data.map { |r| r.transform_values(&:first) } # remove brackets/yahoo returns arrays
-    end
-
     def parse_response request_url
       Nokogiri::XML(raw_response(request_url)).remove_namespaces!
     rescue StandardError => e
@@ -63,7 +59,7 @@ module Api
       raise e unless Rails.env == 'production'
 
       ErrorMailer.new.error_email('Error parsing response from yahoo', error).deliver!
-      []
+      Nokogiri::XML('')
     end
 
     def raw_response request_url
@@ -75,6 +71,7 @@ module Api
       response.xpath('//status').first.text == 'success'
     rescue StandardError => e
       error = "#{e.message}\n#{e.backtrace.inspect}"
+
       raise e unless Rails.env == 'production'
 
       ErrorMailer.new.error_email('Error parsing response from yahoo', error).deliver!

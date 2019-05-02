@@ -40,7 +40,7 @@ module Api
     end
 
     def parse_response response
-      return [] unless response.message == 'OK'
+      return [] unless response.code == '200'
 
       json = JSON.parse(response.body)
       return [] unless json['events'].any?

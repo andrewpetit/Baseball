@@ -59,17 +59,48 @@ RSpec.describe Api::YahooBase, type: :class do
     end
   end
 
-  describe 'invalid response' do
+  describe 'invalid raw response' do
     before do
       allow(yahoo_access_token).to receive(:get).and_return({})
     end
 
-    it 'catches mlb error' do
-      expect { yahoo_base.current_mlb_id }.to raise_error(StandardError)
+    context 'when testing' do
+      it 'catches mlb error' do
+        expect { yahoo_base.current_mlb_id }.to raise_error(StandardError)
+      end
+
+      it 'catches nfl error' do
+        expect { yahoo_base.current_nfl_pickem_id }.to raise_error(StandardError)
+      end
     end
 
-    it 'catches nfl error' do
-      expect { yahoo_base.current_nfl_pickem_id }.to raise_error(StandardError)
+    context 'when prod' do
+      let(:error_mailer) { instance_double('ErrorMailer') }
+      let(:mailer) { instance_double('Mailer', deliver!: true) }
+
+      before do
+        Rails.stub(env: 'production')
+        allow(ErrorMailer).to receive(:new).and_return(error_mailer)
+        allow(error_mailer).to receive(:error_email).and_return(mailer)
+      end
+
+      it 'records mlb error' do
+        yahoo_base.current_mlb_id
+        expect(error_mailer).to have_received(:error_email)
+      end
+
+      it 'returns nothing on mlb error' do
+        expect(yahoo_base.current_mlb_id).to eq ''
+      end
+
+      it 'records nfl error' do
+        yahoo_base.current_nfl_pickem_id
+        expect(error_mailer).to have_received(:error_email)
+      end
+
+      it 'returns nothing on nfl error' do
+        expect(yahoo_base.current_nfl_pickem_id).to eq ''
+      end
     end
   end
 end

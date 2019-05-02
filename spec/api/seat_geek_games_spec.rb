@@ -22,27 +22,22 @@ RSpec.describe Api::SeatGeekGames, type: :class do
   end
 
   describe '#get_games' do
-    context 'with good response' do
-      before do
-        allow(seat_geek).to receive(:get_response).and_return(response)
-      end
+    let(:url) { seat_geek.send(:url, start_date, end_date) }
+    let(:status) { 200 }
 
+    before do
+      stub_request(:get, url)
+        .to_return(status: status, body: body, headers: {})
+    end
+
+    context 'with good response' do
       it 'parses the games' do
         expect(seat_geek.get_games(start_date, end_date)).to eq parsed_response
-      end
-
-      it 'calls get response' do
-        seat_geek.get_games(start_date, end_date)
-        expect(seat_geek).to have_received(:get_response)
       end
     end
 
     context 'with bad response' do
-      let(:message) { 'FAIL' }
-
-      before do
-        allow(seat_geek).to receive(:get_response).and_return(response)
-      end
+      let(:status) { 500 }
 
       it 'returns empty array' do
         expect(seat_geek.get_games(start_date, end_date)).to eq []
